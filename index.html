@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ico cabinet</title>
+    <link rel="stylesheet" href="style_new.css" />
+    <link rel="stylesheet" href="ico_cabinet.min.css" />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">-->
+    <!-- Fix for iOS Safari zooming bug -->
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+  </head>
+
+  <body class="ico-cabinet light-theme">
+    <div class="dashboard-header dashboard-block">
+      <div class="dashboard-header__left">
+        <div class="dashboard-status">
+          <div class="dashboard-logo"><img src="img/logo.svg" alt="" /></div>
+          <div class="dashboard-status__right">
+            <button class="btn btn-small btn-green" disabled>OPEN TRADE</button>
+            <!-- <button class="btn btn-small btn-red" disabled>TRADE CLOSED</button> -->
+            <div class="dashboard-status__time" data-clock>
+              <span class="dashboard-status__time_date" data-clock-date></span>
+              <span class="dashboard-status__time_hours" data-clock-time></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-header__right">
+        <div class="dashboard-auth">
+          <div class="dashboard-theme">
+            <label class="checkbox" data-theme-switcher>
+              <input type="checkbox" />
+              <div class="checkbox__left-img"></div>
+              <div class="checkbox__bg">
+                <div class="checkbox__inner"></div>
+              </div>
+              <div class="checkbox__right-img"></div>
+            </label>
+          </div>
+          <div class="dashboard-auth__buttons">
+            <div class="dashboard-auth__unauthorized">
+              <button class="btn btn-grey btn-small" data-modal-open="sign-in">
+                LOG IN
+              </button>
+              <button class="btn btn-green btn-small" data-modal-open="sign-up">
+                REGISTER
+              </button>
+            </div>
+            <div class="dashboard-auth__authorized">
+              <span class="dashboard-auth__email">xkjhcdihbce@gmail.com</span>
+              <button class="btn btn-grey btn-small" id="logOutButton">
+                LOG OUT
+              </button>
+            </div>
+          </div>
+          <div class="dropdown dropdown-dark-grey dropdown-small" data-dropdown>
+            <div class="dropdown-value" data-dropdown-value>Eng</div>
+            <div class="dropdown-content" data-dropdown-content>
+              <ul>
+                <li data-dropdown-item>Eng</li>
+                <li data-dropdown-item>Rus</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <div class="dashboard-container">
+        <div class="dashboard-container__left">
+          <div class="dashboard-block">
+              <form>
+                  <div class="input">
+                      <div class="input__label">Login email
+                          <!-- <div class="input__label_extra">last</div> -->
+                      </div>
+                      <!-- <div class="input__tag">ETH</div> -->
+                      <input type="email" name="price" class="numeric-1" onkeyup="numOnly(this, 1000000)" autocomplete="off">
+                  </div>
+                  <div class="input">
+                      <div class="input__label">Password
+                          <!-- <div class="input__label_extra">last</div> -->
+                      </div>
+                      <!-- <div class="input__tag">ETH</div> -->
+                      <input type="password" name="price" class="numeric-1" onkeyup="numOnly(this, 1000000)" autocomplete="off">
+                  </div>
+                  <div class="input">
+                      <div class="input__label">Password Again
+                          <!-- <div class="input__label_extra">last</div> -->
+                      </div>
+                      <!-- <div class="input__tag">ETH</div> -->
+                      <input type="password" name="price" class="numeric-1" onkeyup="numOnly(this, 1000000)" autocomplete="off">
+                  </div>
+                  <button class="btn btn-green btn-big" type="submit">Change</button>
+              </form>
+          </div>
+          <div class="dashboard-block">security</div>
+        </div>
+        <div class="dashboard-container__right">
+          <div class="dashboard-block" data-tabs>
+            <div class="cabinet-tabs">
+              <div class="cabinet-tabs__item active" data-tabs-item="1">
+                Favotite wallets
+              </div>
+              <div class="cabinet-tabs__item" data-tabs-item="2">
+                All wallets
+              </div>
+              <div class="cabinet-tabs__item" data-tabs-item="3">
+                Transactions
+              </div>
+            </div>
+            <div class="cabinet-tabs-content active" data-tabs-content="1">
+              <div class="cabinet-wallets">
+                <div class="cabinet-wallets__item">
+                  <div class="cabinet-wallets__item_info">
+                      <div class="cabinet-wallets__item_name">
+                          <img class="cabinet-wallets__item_logo" src="img/yoda.svg" alt="">
+                        Bitcoin <br> BTC
+                      </div>
+                      <div class="cabinet-wallets__item_money">
+                        <div>
+                            <div class="cabinet-wallets__item_value">1,100.999999999</div>
+                            <div class="cabinet-wallets__item_usd">USD 999,999.99 </div>
+                        </div>
+                        <img src="img/yoda.svg"  alt="" class="cabinet-wallets__item_star">
+                      </div>
+                  </div>
+                  <div class="cabinet-wallets__item_buttons">
+                    <button type="button" class="btn">Send</button>
+                    <button type="button" class="btn">Receive</button>
+                  </div>
+                </div>
+
+                <div class="cabinet-wallets__item">
+                    <div class="cabinet-wallets__item_info">
+                        <div class="cabinet-wallets__item_name">
+                            <img class="cabinet-wallets__item_logo" src="img/yoda.svg" alt="">
+                            Bitcoin Cash <br> BCH
+                        </div>
+                        <div class="cabinet-wallets__item_money">
+                          <div>
+                              <div class="cabinet-wallets__item_value">1,100.999999999</div>
+                              <div class="cabinet-wallets__item_usd">USD 999,999.99 </div>
+                          </div>
+                          <img src="img/yoda.svg"  alt="" class="cabinet-wallets__item_star">
+                        </div>
+                    </div>
+                    <div class="cabinet-wallets__item_buttons">
+                      <button type="button" class="btn">Send</button>
+                      <button type="button" class="btn">Receive</button>
+                    </div>
+                  </div>
+
+                  
+                <div class="cabinet-wallets__item">
+                    <div class="cabinet-wallets__item_info">
+                        <div class="cabinet-wallets__item_name">
+                            <img class="cabinet-wallets__item_logo" src="img/yoda.svg" alt="">
+                            Bitcoin Cash <br> BCH
+                        </div>
+                        <div class="cabinet-wallets__item_money">
+                          <div>
+                              <div class="cabinet-wallets__item_value">1,100.999999999</div>
+                              <div class="cabinet-wallets__item_usd">USD 999,999.99 </div>
+                          </div>
+                          <img src="img/yoda.svg"  alt="" class="cabinet-wallets__item_star">
+                        </div>
+                    </div>
+                    <div class="cabinet-wallets__item_buttons">
+                      <button type="button" class="btn">Send</button>
+                      <button type="button" class="btn">Receive</button>
+                    </div>
+                  </div>
+
+                  
+                <div class="cabinet-wallets__item">
+                    <div class="cabinet-wallets__item_info">
+                        <div class="cabinet-wallets__item_name">
+                            <img class="cabinet-wallets__item_logo" src="img/yoda.svg" alt="">
+                            Bitcoin Cash <br> BCH
+                        </div>
+                        <div class="cabinet-wallets__item_money">
+                          <div>
+                              <div class="cabinet-wallets__item_value">1,100.999999999</div>
+                              <div class="cabinet-wallets__item_usd">USD 999,999.99 </div>
+                          </div>
+                          <img src="img/yoda.svg"  alt="" class="cabinet-wallets__item_star">
+                        </div>
+                    </div>
+                    <div class="cabinet-wallets__item_buttons">
+                      <button type="button" class="btn">Send</button>
+                      <button type="button" class="btn">Receive</button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="cabinet-tabs-content" data-tabs-content="2">
+              <div class="cabinet-wallets active">
+                <!-- <div class="cabinet-wallets__item">1</div>
+                <div class="cabinet-wallets__item">1</div>
+                <div class="cabinet-wallets__item">1</div> -->
+              </div>
+            </div>
+
+            <div class="cabinet-tabs-content" data-tabs-content="3">
+              <div class="cabinet-wallets active">
+                <!-- <div class="cabinet-wallets__item">1</div>
+                <div class="cabinet-wallets__item">1</div>
+                <div class="cabinet-wallets__item">1</div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-block">Statistic Info</div>
+        </div>
+      </div>
+    </main>
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal" data-modal="sign-in">
+      <div class="modal-body">
+        <div class="modal-logo">
+          <img class="modal-logo" src="img/logo.svg" />
+        </div>
+        <div class="js-close-modal modal__close"></div>
+        <div class="modal-line-text"><span>LOG IN</span></div>
+        <form novalidate="">
+          <div class="modal-text">
+            Please check that you are visiting
+            <a href="">https://exchange2.net</a>
+          </div>
+          <div class="modal-input-link">
+            <div class="modal-input-link-icon">
+              <img src="img/padlock.svg" alt="" />
+            </div>
+            <span><b>https:</b>//www.exchange2.net</span>
+          </div>
+        </form>
+        <div class="modal-line-text"></div>
+
+        <form method="POST" id="sign-in-form" action=":8008/auth">
+          <div class="modal-label">Email</div>
+          <div class="modal-input">
+            <input type="text" name="login" placeholder="login" required="" />
+          </div>
+          <div class="modal-label">Password</div>
+          <div class="modal-input">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required=""
+            />
+          </div>
+          <div class="modal-link">forgot password?</div>
+          <button class="btn" type="submit">LOG IN</button>
+          <div class="modal-bottom-text">
+            Not on Exchange#2 yet?
+            <span class="modal-link js-popup" data-modal-open="sign-up"
+              >register</span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal" data-modal="sign-up">
+      <div class="modal-body">
+        <div class="js-close-modal modal__close"></div>
+        <div class="modal-logo">
+          <img class="modal-logo" src="img/logo.svg" />
+        </div>
+        <div class="modal-line-text"><span>Create your account now</span></div>
+        <form id="registration-form" method="POST">
+          <div class="js-close-modal modal__close"></div>
+          <div class="modal-label">Email</div>
+          <div class="modal-input">
+            <input
+              type="text"
+              name="login"
+              placeholder="Provide an active address"
+              required
+              data-pattern="email"
+            />
+          </div>
+          <div class="modal-label">Password</div>
+          <div class="modal-input">
+            <input
+              type="password"
+              name="password"
+              placeholder="Minimum 7 characters"
+              required
+              data-pattern="password"
+            />
+          </div>
+          <div class="modal-label">Confirm Password</div>
+          <div class="modal-input">
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Passwords must match"
+              required
+              data-pass-confirm="true"
+            />
+          </div>
+          <label class="modal-checkbox">
+            <input
+              type="checkbox"
+              name="agree"
+              data-pattern="checkbox"
+              reuired
+              data-pattern="checkbox"
+            />
+            <div class="modal-checkbox-icon"></div>
+            I agree with service <a href="/tos.html">Terms &amp; Conditions</a>
+          </label>
+          <button class="btn" id="signUpButton">REGISTER</button>
+          <div class="modal-bottom-text">
+            Already have an account?<span
+              class="modal-link js-popup"
+              data-modal-open="sign-in"
+              >LOG IN</span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <script id="trade-log-sell-template" type="text/x-handlebars-template">
+      <div class="table-body__row">
+            <div class="table-body__col red">{price}</div>
+            <div class="table-body__col">{amount}</div>
+            <div class="table-body__col">{total}</div>
+        </div>
+    </script>
+    <script id="trade-log-buy-template" type="text/x-handlebars-template">
+      <div class="table-body__row">
+            <div class="table-body__col green">{price}</div>
+            <div class="table-body__col">{amount}</div>
+            <div class="table-body__col">{total}</div>
+        </div>
+    </script>
+    <script id="trade-history-template" type="text/x-handlebars-template">
+      <div class="table-body__row trade-history-row">
+            <div class="table-body__col green">{price}</div>
+            <div class="table-body__col">{amount}</div>
+            <div class="table-body__col">{time}</div>
+        </div>
+    </script>
+    <script id="order-list-open-template" type="text/x-handlebars-template">
+      <div class="table-body__row">
+            <div class="table-body__col">{time}</div>
+            <div class="table-body__col">{pair}</div>
+            <div class="table-body__col {type}">{type}</div>
+            <div class="table-body__col">{amount}</div>
+            <div class="table-body__col">{status}</div>
+            <div class="table-body__col">{price}</div>
+            <div class="table-body__col">{total}</div>
+
+            <div class="table-body__col cancel-btn" data-toggle="open-orders">Cancel</div>
+        </div>
+    </script>
+    <script id="order-list-history-template" type="text/x-handlebars-template">
+      <div class="table-body__row">
+            <div class="table-body__col">{time}</div>
+            <div class="table-body__col">{pair}</div>
+            <div class="table-body__col {type}">{type}</div>
+            <div class="table-body__col">{amount}</div>
+            <div class="table-body__col">{status}</div>
+            <div class="table-body__col">{price}</div>
+            <div class="table-body__col">{total}</div>
+            <div class="table-body__col cancel-btn">Cancel</div>
+        </div>
+    </script>
+    <script id="order-list-funds-template" type="text/x-handlebars-template">
+      <div class="table-body__row">
+            <div class="table-body__col">{time}</div>
+            <div class="table-body__col">{pair}</div>
+            <div class="table-body__col {type}">{type}</div>
+            <div class="table-body__col">{amount}</div>
+
+
+            <div class="table-body__col">{price}</div>
+              <div class="table-body__col">{total}</div>
+            <div class="table-body__col cancel-btn" data-toggle="funds">Cancel</div>
+        </div>
+    </script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/ico_cabinet.js"></script>
+    <!-- <script src="js/handlebars-v4.0.11.js"></script> -->
+    <!-- <script src="https://unpkg.com/imask@3.4.0/dist/imask.js"></script> -->
+    <!-- <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script> -->
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <!-- <script src="js/jquery.numeric.js"></script> -->
+    <!-- <script type="text/javascript" src="/charting_library/charting_library/charting_library.min.js"></script> -->
+    <!--<script type="text/javascript" src="datafeeds/udf/dist/polyfills.js"></script>
+    <script type="text/javascript" src="datafeeds/udf/dist/bundle.js"></script>-->
+
+    <!-- <script src="js/all.js"></script> -->
+  </body>
+</html>
