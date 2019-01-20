@@ -5,6 +5,7 @@
     <title>ico cabinet</title>
     <link rel="stylesheet" href="style_new.css" />
     <link rel="stylesheet" href="ico_cabinet.min.css" />
+    <link rel="stylesheet" href="simplebar.css" />
     <!--<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">-->
     <!-- Fix for iOS Safari zooming bug -->
     <meta
@@ -23,7 +24,7 @@
     />
   </head>
 
-  <body class="ico-cabinet light-theme">
+  <body class="cabinet light-theme">
     <div class="dashboard-header dashboard-block">
       <div class="dashboard-header__left">
         <div class="dashboard-status">
@@ -82,33 +83,103 @@
     <main>
       <div class="dashboard-container">
         <div class="dashboard-container__left">
-          <div class="dashboard-block">
-              <form>
-                  <div class="input">
-                      <div class="input__label">Login email
-                          <!-- <div class="input__label_extra">last</div> -->
-                      </div>
-                      <!-- <div class="input__tag">ETH</div> -->
-                      <input type="email" name="price" class="numeric-1" onkeyup="numOnly(this, 1000000)" autocomplete="off">
-                  </div>
-                  <div class="input">
-                      <div class="input__label">Password
-                          <!-- <div class="input__label_extra">last</div> -->
-                      </div>
-                      <!-- <div class="input__tag">ETH</div> -->
-                      <input type="password" name="price" class="numeric-1" onkeyup="numOnly(this, 1000000)" autocomplete="off">
-                  </div>
-                  <div class="input">
-                      <div class="input__label">Password Again
-                          <!-- <div class="input__label_extra">last</div> -->
-                      </div>
-                      <!-- <div class="input__tag">ETH</div> -->
-                      <input type="password" name="price" class="numeric-1" onkeyup="numOnly(this, 1000000)" autocomplete="off">
-                  </div>
-                  <button class="btn btn-green btn-big" type="submit">Change</button>
-              </form>
+          <div class="dashboard-block account">
+            <div class="cabinet-block__title">Account</div>
+            <form>
+              <div class="input">
+                <div class="input__label">
+                  Login email
+                  <!-- <div class="input__label_extra">last</div> -->
+                </div>
+                <!-- <div class="input__tag">ETH</div> -->
+                <input
+                  type="email"
+                  name="price"
+                  class="numeric-1"
+                  placeholder="your@email.com"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="input">
+                <div class="input__label">
+                  Password
+                  <!-- <div class="input__label_extra">last</div> -->
+                </div>
+                <!-- <div class="input__tag">ETH</div> -->
+                <input
+                  type="password"
+                  name="price"
+                  class="numeric-1"
+                  placeholder="***********"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="input">
+                <div class="input__label">
+                  Password Again
+                  <!-- <div class="input__label_extra">last</div> -->
+                </div>
+                <!-- <div class="input__tag">ETH</div> -->
+                <input
+                  type="password"
+                  name="price"
+                  class="numeric-1"
+                  placeholder="***********"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="account-buttons">
+                <button class="btn btn-green btn-big" type="submit">
+                  Change
+                </button>
+              </div>
+            </form>
           </div>
-          <div class="dashboard-block">security</div>
+          <div class="dashboard-block security">
+            <div class="cabinet-block__title">Security</div>
+            <form action="">
+              <div class="input__label">Authentication</div>
+              <div>SMS Authentication</div>
+              <div>Google Authentication</div>
+
+              <button class="btn btn-big" type="submit">Change</button>
+            </form>
+
+            <div>Device Managment</div>
+            <div class="table col-4">
+              <div class="table-head filled">
+                <div class="table-head__col">Device</div>
+                <div class="table-head__col">Location</div>
+                <div class="table-head__col">Recent activity</div>
+                <div class="table-head__col">IP Address</div>
+              </div>
+              <div
+                class="table-body"
+                id="device-managment-table"
+                data-simplebar
+                data-simplebar-auto-hide="false"
+              >
+                <div class="table-empty">Empty</div>
+              </div>
+            </div>
+
+            <div>Location Managment</div>
+            <div class="table col-3">
+              <div class="table-head filled">
+                <div class="table-head__col">Location</div>
+                <div class="table-head__col">Recent activity</div>
+                <div class="table-head__col">IP Address</div>
+              </div>
+              <div
+                class="table-body"
+                id="location-managment-table"
+                data-simplebar
+                data-simplebar-auto-hide="false"
+              >
+                <div class="table-empty">Empty</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="dashboard-container__right">
           <div class="dashboard-block" data-tabs>
@@ -124,114 +195,46 @@
               </div>
             </div>
             <div class="cabinet-tabs-content active" data-tabs-content="1">
-              <div class="cabinet-wallets">
-                <div class="cabinet-wallets__item">
-                  <div class="cabinet-wallets__item_info">
-                      <div class="cabinet-wallets__item_name">
-                          <img class="cabinet-wallets__item_logo" src="img/yoda.svg" alt="">
-                        Bitcoin <br> BTC
-                      </div>
-                      <div class="cabinet-wallets__item_money">
-                        <div>
-                            <div class="cabinet-wallets__item_value">1,100.999999999</div>
-                            <div class="cabinet-wallets__item_usd">USD 999,999.99 </div>
-                        </div>
-                        <img src="img/yoda.svg"  alt="" class="cabinet-wallets__item_star">
-                      </div>
-                  </div>
-                  <div class="cabinet-wallets__item_buttons">
-                    <button type="button" class="btn">Send</button>
-                    <button type="button" class="btn">Receive</button>
-                  </div>
-                </div>
-
-                <div class="cabinet-wallets__item">
-                    <div class="cabinet-wallets__item_info">
-                        <div class="cabinet-wallets__item_name">
-                            <img class="cabinet-wallets__item_logo" src="img/yoda.svg" alt="">
-                            Bitcoin Cash <br> BCH
-                        </div>
-                        <div class="cabinet-wallets__item_money">
-                          <div>
-                              <div class="cabinet-wallets__item_value">1,100.999999999</div>
-                              <div class="cabinet-wallets__item_usd">USD 999,999.99 </div>
-                          </div>
-                          <img src="img/yoda.svg"  alt="" class="cabinet-wallets__item_star">
-                        </div>
-                    </div>
-                    <div class="cabinet-wallets__item_buttons">
-                      <button type="button" class="btn">Send</button>
-                      <button type="button" class="btn">Receive</button>
-                    </div>
-                  </div>
-
-                  
-                <div class="cabinet-wallets__item">
-                    <div class="cabinet-wallets__item_info">
-                        <div class="cabinet-wallets__item_name">
-                            <img class="cabinet-wallets__item_logo" src="img/yoda.svg" alt="">
-                            Bitcoin Cash <br> BCH
-                        </div>
-                        <div class="cabinet-wallets__item_money">
-                          <div>
-                              <div class="cabinet-wallets__item_value">1,100.999999999</div>
-                              <div class="cabinet-wallets__item_usd">USD 999,999.99 </div>
-                          </div>
-                          <img src="img/yoda.svg"  alt="" class="cabinet-wallets__item_star">
-                        </div>
-                    </div>
-                    <div class="cabinet-wallets__item_buttons">
-                      <button type="button" class="btn">Send</button>
-                      <button type="button" class="btn">Receive</button>
-                    </div>
-                  </div>
-
-                  
-                <div class="cabinet-wallets__item">
-                    <div class="cabinet-wallets__item_info">
-                        <div class="cabinet-wallets__item_name">
-                            <img class="cabinet-wallets__item_logo" src="img/yoda.svg" alt="">
-                            Bitcoin Cash <br> BCH
-                        </div>
-                        <div class="cabinet-wallets__item_money">
-                          <div>
-                              <div class="cabinet-wallets__item_value">1,100.999999999</div>
-                              <div class="cabinet-wallets__item_usd">USD 999,999.99 </div>
-                          </div>
-                          <img src="img/yoda.svg"  alt="" class="cabinet-wallets__item_star">
-                        </div>
-                    </div>
-                    <div class="cabinet-wallets__item_buttons">
-                      <button type="button" class="btn">Send</button>
-                      <button type="button" class="btn">Receive</button>
-                    </div>
-                  </div>
-              </div>
+              <div class="cabinet-wallets" id="wallets-list"></div>
             </div>
 
             <div class="cabinet-tabs-content" data-tabs-content="2">
-              <div class="cabinet-wallets active">
-                <!-- <div class="cabinet-wallets__item">1</div>
-                <div class="cabinet-wallets__item">1</div>
-                <div class="cabinet-wallets__item">1</div> -->
-              </div>
+              <div class="cabinet-wallets"></div>
             </div>
 
             <div class="cabinet-tabs-content" data-tabs-content="3">
-              <div class="cabinet-wallets active">
-                <!-- <div class="cabinet-wallets__item">1</div>
-                <div class="cabinet-wallets__item">1</div>
-                <div class="cabinet-wallets__item">1</div> -->
-              </div>
+              <div class="cabinet-wallets"></div>
             </div>
           </div>
 
-          <div class="dashboard-block">Statistic Info</div>
+          <div class="dashboard-block statistic">
+            <div class="cabinet-block__title">Statistic Info</div>
+            <div class="table col-5">
+              <div class="table-filter">
+                <input type="text" class="search-input" />
+              </div>
+              <div class="table-head filled">
+                <div class="table-head__col">Tokens</div>
+                <div class="table-head__col">Balance</div>
+                <div class="table-head__col">In Orders</div>
+                <div class="table-head__col">Price, USD</div>
+                <div class="table-head__col">Fee, USD</div>
+              </div>
+              <div
+                class="table-body"
+                id="statistic-info-table"
+                data-simplebar
+                data-simplebar-auto-hide="false"
+              >
+                <div class="table-empty">Empty</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
     <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="modal" data-modal="sign-in">
+    <!-- <div class="modal" data-modal="sign-in">
       <div class="modal-body">
         <div class="modal-logo">
           <img class="modal-logo" src="img/logo.svg" />
@@ -337,78 +340,48 @@
           </div>
         </form>
       </div>
-    </div>
-    <script id="trade-log-sell-template" type="text/x-handlebars-template">
-      <div class="table-body__row">
-            <div class="table-body__col red">{price}</div>
-            <div class="table-body__col">{amount}</div>
-            <div class="table-body__col">{total}</div>
-        </div>
-    </script>
-    <script id="trade-log-buy-template" type="text/x-handlebars-template">
-      <div class="table-body__row">
-            <div class="table-body__col green">{price}</div>
-            <div class="table-body__col">{amount}</div>
-            <div class="table-body__col">{total}</div>
-        </div>
-    </script>
-    <script id="trade-history-template" type="text/x-handlebars-template">
-      <div class="table-body__row trade-history-row">
-            <div class="table-body__col green">{price}</div>
-            <div class="table-body__col">{amount}</div>
-            <div class="table-body__col">{time}</div>
-        </div>
-    </script>
-    <script id="order-list-open-template" type="text/x-handlebars-template">
-      <div class="table-body__row">
-            <div class="table-body__col">{time}</div>
-            <div class="table-body__col">{pair}</div>
-            <div class="table-body__col {type}">{type}</div>
-            <div class="table-body__col">{amount}</div>
-            <div class="table-body__col">{status}</div>
-            <div class="table-body__col">{price}</div>
-            <div class="table-body__col">{total}</div>
+    </div> -->
 
-            <div class="table-body__col cancel-btn" data-toggle="open-orders">Cancel</div>
-        </div>
-    </script>
-    <script id="order-list-history-template" type="text/x-handlebars-template">
+    <script id="device-managment-template" type="text/x-handlebars-template">
       <div class="table-body__row">
-            <div class="table-body__col">{time}</div>
-            <div class="table-body__col">{pair}</div>
-            <div class="table-body__col {type}">{type}</div>
-            <div class="table-body__col">{amount}</div>
-            <div class="table-body__col">{status}</div>
-            <div class="table-body__col">{price}</div>
-            <div class="table-body__col">{total}</div>
-            <div class="table-body__col cancel-btn">Cancel</div>
-        </div>
+          <div class="table-body__col">{device}</div>
+          <div class="table-body__col">{location}</div>
+          <div class="table-body__col">{activity}</div>
+          <div class="table-body__col">{ip}</div>
+      </div>
     </script>
-    <script id="order-list-funds-template" type="text/x-handlebars-template">
+
+    <script id="location-managment-template" type="text/x-handlebars-template">
       <div class="table-body__row">
-            <div class="table-body__col">{time}</div>
-            <div class="table-body__col">{pair}</div>
-            <div class="table-body__col {type}">{type}</div>
-            <div class="table-body__col">{amount}</div>
+          <div class="table-body__col">{location}</div>
+          <div class="table-body__col">{activity}</div>
+          <div class="table-body__col">{ip}</div>
+      </div>
+    </script>
 
-
-            <div class="table-body__col">{price}</div>
-              <div class="table-body__col">{total}</div>
-            <div class="table-body__col cancel-btn" data-toggle="funds">Cancel</div>
-        </div>
+    <script id="wallet-item-template" type="text/x-handlebars-template">
+        <div class="cabinet-wallets__item">
+          <div class="cabinet-wallets__item_info">
+              <div class="cabinet-wallets__item_name">
+                  <img class="cabinet-wallets__item_logo" src="img/yoda.svg" alt="">
+                Bitcoin <br> BTC
+              </div>
+              <div class="cabinet-wallets__item_money">
+                <div>
+                    <div class="cabinet-wallets__item_value">1,100.999999999</div>
+                    <div class="cabinet-wallets__item_usd">USD 999,999.99 </div>
+                </div>
+                <img src="img/yoda.svg"  alt="" class="cabinet-wallets__item_star">
+              </div>
+          </div>
+          <div class="cabinet-wallets__item_buttons">
+            <button type="button" class="btn">Send</button>
+            <button type="button" class="btn">Receive</button>
+          </div>
+      </div>
     </script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/ico_cabinet.js"></script>
-    <!-- <script src="js/handlebars-v4.0.11.js"></script> -->
-    <!-- <script src="https://unpkg.com/imask@3.4.0/dist/imask.js"></script> -->
-    <!-- <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script> -->
-    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-    <!-- <script src="js/jquery.numeric.js"></script> -->
-    <!-- <script type="text/javascript" src="/charting_library/charting_library/charting_library.min.js"></script> -->
-    <!--<script type="text/javascript" src="datafeeds/udf/dist/polyfills.js"></script>
-    <script type="text/javascript" src="datafeeds/udf/dist/bundle.js"></script>-->
-
-    <!-- <script src="js/all.js"></script> -->
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>
   </body>
 </html>
