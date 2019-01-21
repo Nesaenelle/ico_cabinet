@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Crypto/coins/NEO</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="15.8849263%" y1="50%" x2="79.8138463%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#A8D62B" offset="0%"></stop>
+            <stop stop-color="#75BB24" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="74.982339%" x2="74.9427945%" y2="28.2074687%" id="linearGradient-2">
+            <stop stop-color="#C0E32E" offset="0%"></stop>
+            <stop stop-color="#75BB24" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Crypto/coins/NEO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.253731, -0.000000)">
+            <g id="NEO">
+                <g id="Page-1">
+                    <g id="Artboard">
+                        <g id="NEO">
+                            <polygon id="Fill-620" fill="url(#linearGradient-1)" points="0.517611942 4.07773136 10.0785672 8.63343287 21.2539702 4.62459703 11.6120597 0.0558805972"></polygon>
+                            <polygon id="Fill-622" fill="url(#linearGradient-2)" points="0.0360597016 19.3117613 9.846209 23.9364777 9.846209 9.08131347 0.0360597016 4.37229853"></polygon>
+                            <polygon id="Fill-624" fill="url(#linearGradient-2)" points="11.4157612 8.63283586 11.4157612 15.3315822 21.3941493 20.0405971 21.3941493 5.10113435"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

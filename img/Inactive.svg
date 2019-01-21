@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Checkbox/Inactive</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="16" height="16" rx="1"></rect>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-3">
+            <stop stop-color="#F2F4F7" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Checkbox/Inactive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UI/Container/Custom-(Your-Setup)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Base" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            <g id="UI/Color/Gradient/Default" mask="url(#mask-2)" fill="url(#linearGradient-3)" fill-rule="evenodd">
+                <rect id="Base" x="0" y="0" width="16" height="16"></rect>
+            </g>
+        </g>
+        <g id="UI/Border/Custom-(Your-Setup)/1px---10%Black" stroke="#000000" stroke-opacity="0.1">
+            <path d="M1,0.5 C0.723857625,0.5 0.5,0.723857625 0.5,1 L0.5,15 C0.5,15.2761424 0.723857625,15.5 1,15.5 L15,15.5 C15.2761424,15.5 15.5,15.2761424 15.5,15 L15.5,1 C15.5,0.723857625 15.2761424,0.5 15,0.5 L1,0.5 Z" id="Border-Shape"></path>
+        </g>
+    </g>
+</svg>
