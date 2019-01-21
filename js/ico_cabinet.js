@@ -74,7 +74,7 @@ var walletsCollection = [{
         favorite: false
     },
     {
-        icon: 'img/coins/ADX.svg',
+        icon: 'img/coins/ADX1.svg',
         name: 'AdEx',
         abbr: 'ADX',
         value: '1,100.999999999',
@@ -306,6 +306,31 @@ var transactionsCollection = [{
 ];
 
 
+function ModalController() {
+    var self = this;
+    $(window).on('click', function(e){
+        var modal = $('.modal.opened');
+
+        if(modal && e.target.contains(modal[0])){
+            self.closeModal();
+        }
+    });
+}
+
+ModalController.prototype.openModal = function(name) {
+    $('[data-modal]').removeClass('opened');
+    $('[data-modal='+name+']').addClass('opened');
+    $('.modal-overlay').addClass('opened');
+}
+ModalController.prototype.closeModal = function() {
+    $('[data-modal]').removeClass('opened');
+    $('.modal-overlay').removeClass('opened');
+}
+
+
+
+var modalController = new ModalController();
+
 
 
 Vue.component('app-clock', {
@@ -484,16 +509,16 @@ Vue.component('app-wallets', {
     },
     methods: {
         add: function() {
-            alert('add');
+        
         },
         send: function() {
-            alert('send');
+            modalController.openModal('send')
         },
         receive: function() {
-            alert('receive');
+            modalController.openModal('receive')
         },
         showInfo: function() {
-
+            modalController.openModal('about')
         },
         changeTab: function(i) {
             var self = this;
@@ -577,5 +602,10 @@ var app = new Vue({
     el: '#app',
     data: {
 
+    },
+    methods: {
+        openModal: function(name) {
+            modalController.openModal(name);
+        }
     }
 });

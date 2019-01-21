@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/2.6.1/simplebar.css" />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" /> -->
 </head>
 
 <body class="cabinet light-theme">
@@ -45,10 +45,10 @@
                     </div>
                     <div class="dashboard-auth__buttons">
                         <div class="dashboard-auth__unauthorized">
-                            <button class="btn btn-grey btn-small" data-modal-open="sign-in">
+                            <button class="btn btn-grey btn-small" @click.stop="openModal('sign-in')">
                                 LOG IN
                             </button>
-                            <button class="btn btn-green btn-small" data-modal-open="sign-up">
+                            <button class="btn btn-green btn-small" @click.stop="openModal('sign-up')">
                                 REGISTER
                             </button>
                         </div>
@@ -85,7 +85,144 @@
             </div>
         </main>
         <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal" data-modal="sign-in">
+                <div class="modal-body">
+                    <div class="modal-logo"><img class="modal-logo" src="img/logo.svg"></div>
+                    <div class="js-close-modal modal__close"></div>
+                    <div class="modal-line-text"><span>LOG IN</span></div>
+                    <form novalidate="">
+                        <div class="modal-text">Please check that you are visiting <a href="">https://exchange2.net</a></div>
+                        <div class="modal-input-link">
+                            <div class="modal-input-link-icon"><img src="img/padlock.svg" alt=""></div><span><b>https:</b>//www.exchange2.net</span></div>
+                    </form>
+                    <div class="modal-line-text"></div>
 
+                    <form method="POST" id="sign-in-form" action=":8008/auth">
+                        <div class="modal-label">Email</div>
+                        <div class="modal-input">
+                            <input type="text" name="login" placeholder="login" required="">
+                        </div>
+                        <div class="modal-label">Password</div>
+                        <div class="modal-input">
+                            <input type="password" name="password" placeholder="Password" required="">
+                        </div>
+                        <div class="modal-link">forgot password?</div>
+                        <button class="btn" type="submit">LOG IN</button>
+                        <div class="modal-bottom-text">Not on Exchange#2 yet? <span class="modal-link js-popup" data-modal-open="sign-up">register</span></div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal" data-modal="sign-up">
+                    <div class="modal-body">
+                        <div class="js-close-modal modal__close"></div>
+                        <div class="modal-logo"><img class="modal-logo" src="img/logo.svg"></div>
+                        <div class="modal-line-text"><span>Create your account now</span></div>
+                        <form id="registration-form" method="POST">
+                            <div class="js-close-modal modal__close"></div>
+                            <div class="modal-label">Email</div>
+                            <div class="modal-input">
+                                <input type="text" name="login" placeholder="Provide an active address" required="" data-pattern="email">
+                            </div>
+                            <div class="modal-label">Password</div>
+                            <div class="modal-input">
+                                <input type="password" name="password" placeholder="Minimum 7 characters" required="" data-pattern="password">
+                            </div>
+                            <div class="modal-label">Confirm Password</div>
+                            <div class="modal-input">
+                                <input type="password" name="confirmPassword" placeholder="Passwords must match" required="" data-pass-confirm="true">
+                            </div>
+                            <label class="modal-checkbox">
+                                <input type="checkbox" name="agree" data-pattern="checkbox" reuired="">
+                                <div class="modal-checkbox-icon"></div>
+                                I agree with service <a href="/tos.html">Terms &amp; Conditions</a>
+                            </label>
+                            <button class="btn" id="signUpButton">REGISTER</button>
+                            <div class="modal-bottom-text">Already have an account?<span class="modal-link js-popup" data-modal-open="sign-in">LOG IN</span></div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="modal cabinet-modal" data-modal="send">
+                        <div class="modal-body">
+                            <div class="js-close-modal modal__close"></div>
+                            <div class="cabinet-modal__title"><span>Send Bitcoins </span></div>
+                            <form  method="POST">
+                                <div class="input"><div class="input__label">
+                                        Asset
+                                    </div> <input type="text" required="required" name="email" placeholder="your@email.com" autocomplete="off">
+                                </div>
+                                <div class="input"><div class="input__label">
+                                        Recipient
+                                    </div> <input type="text" required="required" name="email" placeholder="your@email.com" autocomplete="off">
+                                </div>
+                                <div class="input"><div class="input__label">
+                                        Amount
+                                    </div> <input type="text" required="required" name="email" placeholder="your@email.com" autocomplete="off">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal" data-modal="receive">
+                            <div class="modal-body">
+                                <div class="js-close-modal modal__close"></div>
+                                <!-- <div class="modal-logo"><img class="modal-logo" src="img/logo.svg"></div> -->
+                                <div class="modal-line-text"><span>Receive Bitcoins </span></div>
+                                <form  method="POST">
+                    <!--                 <div class="js-close-modal modal__close"></div>
+                                    <div class="modal-label">Email</div>
+                                    <div class="modal-input">
+                                        <input type="text" name="login" placeholder="Provide an active address" required="" data-pattern="email">
+                                    </div>
+                                    <div class="modal-label">Password</div>
+                                    <div class="modal-input">
+                                        <input type="password" name="password" placeholder="Minimum 7 characters" required="" data-pattern="password">
+                                    </div>
+                                    <div class="modal-label">Confirm Password</div>
+                                    <div class="modal-input">
+                                        <input type="password" name="confirmPassword" placeholder="Passwords must match" required="" data-pass-confirm="true">
+                                    </div>
+                                    <label class="modal-checkbox">
+                                        <input type="checkbox" name="agree" data-pattern="checkbox" reuired="">
+                                        <div class="modal-checkbox-icon"></div>
+                                        I agree with service <a href="/tos.html">Terms &amp; Conditions</a>
+                                    </label>
+                                    <button class="btn" id="signUpButton">REGISTER</button>
+                                    <div class="modal-bottom-text">Already have an account?<span class="modal-link js-popup" data-modal-open="sign-in">LOG IN</span></div> -->
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class="modal" data-modal="about">
+                                <div class="modal-body">
+                                    <div class="js-close-modal modal__close"></div>
+                                    <!-- <div class="modal-logo"><img class="modal-logo" src="img/logo.svg"></div> -->
+                                    <div class="modal-line-text"><span>Bitcoin</span></div>
+                                    <form  method="POST">
+                        <!--                 <div class="js-close-modal modal__close"></div>
+                                        <div class="modal-label">Email</div>
+                                        <div class="modal-input">
+                                            <input type="text" name="login" placeholder="Provide an active address" required="" data-pattern="email">
+                                        </div>
+                                        <div class="modal-label">Password</div>
+                                        <div class="modal-input">
+                                            <input type="password" name="password" placeholder="Minimum 7 characters" required="" data-pattern="password">
+                                        </div>
+                                        <div class="modal-label">Confirm Password</div>
+                                        <div class="modal-input">
+                                            <input type="password" name="confirmPassword" placeholder="Passwords must match" required="" data-pass-confirm="true">
+                                        </div>
+                                        <label class="modal-checkbox">
+                                            <input type="checkbox" name="agree" data-pattern="checkbox" reuired="">
+                                            <div class="modal-checkbox-icon"></div>
+                                            I agree with service <a href="/tos.html">Terms &amp; Conditions</a>
+                                        </label>
+                                        <button class="btn" id="signUpButton">REGISTER</button>
+                                        <div class="modal-bottom-text">Already have an account?<span class="modal-link js-popup" data-modal-open="sign-in">LOG IN</span></div> -->
+                                    </form>
+                                </div>
+                            </div>
     </div>
 
     <script id="clock-template" type="text/x-template">
@@ -300,7 +437,7 @@
             </div>
 
              <div class="cabinet-tabs-content" :class="{active: activeTab === 2}" style="margin-top: 4px;">
-        
+
                     <div class="table col-6">
                         <div class="table-filter">
                             <div class="table-filter__text">View on</div>
@@ -316,7 +453,7 @@
                             <div class="table-head__col">Fee</div>
                             <div class="table-head__col">Total Balance</div>
                         </div>
-                        <div class="table-body filled scroll-y" ref="transactions">
+                        <div class="table-body filled" ref="transactions">
                             <div class="table-empty" v-if="!transactions.length">Empty</div>
                             <div class="table-body__row" v-if="transactions.length" v-for="item in transactions">
                                 <div class="table-body__col">
@@ -331,7 +468,7 @@
                         </div>
                     </div>
 
-               
+           
             </div>
         </div>
     </script>
