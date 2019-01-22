@@ -784,6 +784,7 @@ body.cabinet {
         
 
         &[data-modal="about"] {
+
             .modal-buttons {
                 .btn {
                     margin-left: 10px;
@@ -839,7 +840,10 @@ body.cabinet {
         }
 
         &[data-modal="receive"] {
-
+            
+            .modal-body {
+                height: 564px;  
+            }
             .input,
             .input__attention, {
                 padding-left: 10px;

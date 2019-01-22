@@ -57,19 +57,23 @@
               autocomplete="off"
             >
           </div>
-          <div class="input">
-            <div class="input__label">Link to an Invoice
-              <app-info-tooltip>какакакаd</app-info-tooltip>
+          <div style="    display: flex; margin-top: 10px;margin-bottom: 20px;
+    align-items: flex-end; justify-content: space-between;">
+            <div class="input" style="width: 80%">
+              <div class="input__label">Link to an Invoice
+                <app-info-tooltip>какакакаd</app-info-tooltip>
+              </div>
+              <input
+                type="text"
+                value="http://exchange2.net/dfgyhhnm,l;lkjhgc"
+                required="required"
+                name="recipient"
+                placeholder
+                autocomplete="off"
+              >
             </div>
-            <input
-              type="text"
-              value="http://exchange2.net/dfgyhhnm,l;lkjhgc"
-              required="required"
-              name="recipient"
-              placeholder
-              autocomplete="off"
-            >
-            <button class="btn btn-green" type="button">Copy</button>
+            <button class="btn btn-green" type="button" style="margin: 0 0 3px 0; width: 72px;
+  height: 30px;">Copy</button>
           </div>
         </div>
         <div v-if="activeTab === 2">
@@ -79,7 +83,7 @@
             </div>
             <input
               type="text"
-              required="required"
+             
               name="recipient"
               placeholder="0.00 USD"
               autocomplete="off"
@@ -91,7 +95,7 @@
             </div>
             <input
               type="text"
-              required="required"
+             
               name="recipient"
               placeholder="0.00 BTC"
               autocomplete="off"
@@ -102,18 +106,18 @@
           </div>
           <div class="radio">
             <label>
-              <input type="radio" name="payment" value="paypal"   v-model.number="form.payment">
+              <input type="radio" name="payment" value="paypal" v-model.number="form.payment">
               <div class="radio__icon"></div>
               <img src="img/icons/Paypal.svg" alt>
             </label>
             
             <label>
-              <input type="radio" name="payment" value="visa"   v-model.number="form.payment">
+              <input type="radio" name="payment" value="visa" v-model.number="form.payment">
               <div class="radio__icon"></div>
               <img src="img/icons/Visa.svg" alt>
             </label>
           </div>
-          <button class="btn"  :class="{'btn-green': valid}" type="submit">Continue</button>
+          <button class="btn" :class="{'btn-green': valid}" type="submit">Continue</button>
         </div>
       </form>
     </div>
