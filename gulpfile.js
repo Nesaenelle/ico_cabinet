@@ -6,6 +6,12 @@ var paths = {
         // Compiled files will end up in whichever folder it's found in (partials are not compiled)
         dest: "./",
     },
+    js: {
+        src: "src/main.js"
+    },
+    vue: {
+        src: "src/**/*.vue",
+    },
     html: "./*.html"
 
     // Easily add additional paths
@@ -21,7 +27,11 @@ var gulp = require("gulp"),
     autoprefixer = require("autoprefixer"),
     cssnano = require("cssnano"),
     sourcemaps = require("gulp-sourcemaps"),
-    rename = require("gulp-rename");
+    rename = require("gulp-rename"),
+    browserify = require("browserify"),
+    babelify = require("babelify"),
+    vueify = require("vueify"),
+    source     = require('vinyl-source-stream');
 
 // ... other includes
 var browserSync = require("browser-sync").create();
@@ -44,15 +54,15 @@ function style() {
 }
 
 function vue () {
-    gulp.task('js', function() {
-        return browserify({ entries: 'src/js/main.js'})
+   
+        return browserify({ entries: 'src/main.js'})
           .transform(babelify, { presets: ['es2015'] })
           .transform(vueify)
           .bundle()
             .pipe(source('app.js'))
-            .pipe(gulp.dest('public/js'))
-            .pipe(connect.reload());
-      });
+            .pipe(gulp.dest('public'))
+            // .pipe(reload());
+  
 }
 
 // A simple task to reload the page
@@ -70,7 +80,8 @@ function watch() {
         }
     });
     gulp.watch(paths.styles.src, style);
-    gulp.watch(paths.styles.src, vue);
+    gulp.watch(paths.js.src, vue);
+    gulp.watch(paths.vue.src, vue);
     // We should tell gulp which files to watch to trigger the reload
     // This can be html or whatever you're using to develop your website
     // Note -- you can obviously add the path to the Paths object
