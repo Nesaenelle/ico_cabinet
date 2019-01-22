@@ -116,7 +116,14 @@
 </template>
 
     <script>
+import { modalMixin } from "../mixins/modal.mixin";
 export default {
+  mixins: [modalMixin],
+  data() {
+    return {
+      activeTab: 1
+    };
+  },
   mounted: function() {},
   methods: {
     changeTab: function(i) {

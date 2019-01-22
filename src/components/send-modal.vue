@@ -82,7 +82,9 @@
 
 
     <script>
+    import { modalMixin } from "../mixins/modal.mixin";
 export default {
+    mixins: [modalMixin],
   data: function() {
     return {
       valid: false,

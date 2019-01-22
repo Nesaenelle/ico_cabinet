@@ -60,20 +60,18 @@
 
 
 <script>
+import { modalMixin } from "../mixins/modal.mixin";
 export default {
-  data () {
+  mixins: [modalMixin],
+  data() {
     return {
-      msg: 'Hello world!111'
-    }
+      msg: "Hello world!111"
+    };
   },
-    mounted() {
+  mounted() {},
 
-    },
-    
-    methods: {
-        addToFavorite: function() {
-            
-        }
-    }
-}
+  methods: {
+    addToFavorite: function() {}
+  }
+};
 </script>

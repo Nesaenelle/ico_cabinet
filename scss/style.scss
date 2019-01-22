@@ -415,6 +415,7 @@ body.cabinet {
                 height: 3px;
                 background-color: #39b54a;
                 transition: 0.3s;
+                left: 0;
 
                 @media screen and (max-width: 600px) {
                     bottom: -10px;
