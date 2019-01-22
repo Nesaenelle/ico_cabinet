@@ -49,3 +49,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .dashboard-status__time {
+    white-space: nowrap;
+  }
+</style>
