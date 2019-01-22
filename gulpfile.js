@@ -43,6 +43,18 @@ function style() {
     );
 }
 
+function vue () {
+    gulp.task('js', function() {
+        return browserify({ entries: 'src/js/main.js'})
+          .transform(babelify, { presets: ['es2015'] })
+          .transform(vueify)
+          .bundle()
+            .pipe(source('app.js'))
+            .pipe(gulp.dest('public/js'))
+            .pipe(connect.reload());
+      });
+}
+
 // A simple task to reload the page
 function reload() {
     browserSync.reload();
@@ -50,6 +62,7 @@ function reload() {
 
 function watch() {
     style();
+    vue();
     reload();
     browserSync.init({
         server: {
@@ -57,11 +70,14 @@ function watch() {
         }
     });
     gulp.watch(paths.styles.src, style);
+    gulp.watch(paths.styles.src, vue);
     // We should tell gulp which files to watch to trigger the reload
     // This can be html or whatever you're using to develop your website
     // Note -- you can obviously add the path to the Paths object
     gulp.watch(paths.html, reload);
 }
+
+
 
 // We don't have to expose the reload function
 // It's currently only useful in other functions

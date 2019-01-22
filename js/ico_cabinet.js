@@ -142,6 +142,42 @@ var walletsCollection = [{
         usd: 'USD 0.00',
         favorite: false,
         inactive: true
+    },
+    {
+        icon: 'img/coins/BNT.svg',
+        name: 'Bancor',
+        abbr: 'BTN',
+        value: '0.00',
+        usd: 'USD 0.00',
+        favorite: false,
+        inactive: true
+    },
+    {
+        icon: 'img/coins/BNT.svg',
+        name: 'Bancor',
+        abbr: 'BTN',
+        value: '0.00',
+        usd: 'USD 0.00',
+        favorite: false,
+        inactive: true
+    },
+    {
+        icon: 'img/coins/BNT.svg',
+        name: 'Bancor',
+        abbr: 'BTN',
+        value: '0.00',
+        usd: 'USD 0.00',
+        favorite: false,
+        inactive: true
+    },
+    {
+        icon: 'img/coins/BNT.svg',
+        name: 'Bancor',
+        abbr: 'BTN',
+        value: '0.00',
+        usd: 'USD 0.00',
+        favorite: false,
+        inactive: true
     }
 
 ];
@@ -204,6 +240,51 @@ var transactionsCollection = [{
     fee: '999,999.99',
     totalBalance: '999,999.99'
 }, {
+    icon: 'img/coins/DASH.svg',
+    name: 'Dash',
+    date: '24-01-2018   13:45',
+    status: 'send',
+    amount: '999,999.99',
+    fee: '999,999.99',
+    totalBalance: '999,999.99'
+},
+{
+    icon: 'img/coins/DASH.svg',
+    name: 'Dash',
+    date: '24-01-2018   13:45',
+    status: 'send',
+    amount: '999,999.99',
+    fee: '999,999.99',
+    totalBalance: '999,999.99'
+},
+{
+    icon: 'img/coins/DASH.svg',
+    name: 'Dash',
+    date: '24-01-2018   13:45',
+    status: 'send',
+    amount: '999,999.99',
+    fee: '999,999.99',
+    totalBalance: '999,999.99'
+},
+{
+    icon: 'img/coins/DASH.svg',
+    name: 'Dash',
+    date: '24-01-2018   13:45',
+    status: 'send',
+    amount: '999,999.99',
+    fee: '999,999.99',
+    totalBalance: '999,999.99'
+},
+{
+    icon: 'img/coins/DASH.svg',
+    name: 'Dash',
+    date: '24-01-2018   13:45',
+    status: 'send',
+    amount: '999,999.99',
+    fee: '999,999.99',
+    totalBalance: '999,999.99'
+},
+{
     icon: 'img/coins/DASH.svg',
     name: 'Dash',
     date: '24-01-2018   13:45',
@@ -597,6 +678,107 @@ Vue.component('app-info-tooltip', {
 
 
 
+var modalMixin = {
+    methods: {
+        openModal: function(name) {
+            modalController.openModal(name);
+        },
+        closeModal: function() {
+            modalController.closeModal();
+        }
+    }
+  }
+
+Vue.component('app-send-modal', {
+    mixins: [modalMixin],
+    data: function() {
+        return {
+            valid: false,
+            form: {
+                asset: '',
+                recipient: '',
+                amount: '',
+                description: ''
+            },
+            errors: {
+                asset: false,
+                recipient: false,
+                amount: false,
+            },
+            dirty: {
+                asset: false,
+                recipient: false,
+                amount: false,
+            },
+            notification: true
+        }
+    },
+    template: '#send-modal-template',
+    mounted: function() {
+
+    },
+    methods: {
+        submit: function() {
+           if(this.valid) {
+            alert(JSON.stringify(this.form));
+            modalController.closeModal();
+           }
+        },
+        validate: function() {
+
+        }
+    }
+});
+
+
+Vue.component('app-receive-modal', {
+    mixins: [modalMixin],
+    data: function() {
+        return {
+            activeTab: 1
+        }
+    },
+    template: '#receive-modal-template',
+    mounted: function() {
+
+    },
+    methods: {
+        changeTab: function(i) {
+            this.activeTab = i;
+        },
+        submit: function() {
+            if(this.valid) {
+             alert(JSON.stringify(this.form));
+             modalController.closeModal();
+            }
+         },
+         validate: function() {
+ 
+         }
+    }
+});
+
+
+Vue.component('app-about-modal', {
+    mixins: [modalMixin],
+    data: function() {
+        return {
+            favorite: true
+        }
+    },
+    template: '#about-modal-template',
+    mounted: function() {
+
+    },
+    methods: {
+        addToFavorite: function() {
+            
+        }
+    }
+});
+
+
+
 
 var app = new Vue({
     el: '#app',
@@ -606,6 +788,9 @@ var app = new Vue({
     methods: {
         openModal: function(name) {
             modalController.openModal(name);
+        },
+        closeModal: function() {
+            modalController.closeModal();
         }
     }
 });

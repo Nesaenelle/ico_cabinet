@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Radio Button/Inactive</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="16" height="16" rx="8"></rect>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="linearGradient-3">
+            <stop stop-color="#F2F4F7" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="cabinet" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="popups" transform="translate(-785.000000, -1274.000000)">
+            <g id="Radio-Button/Inactive" transform="translate(785.000000, 1274.000000)">
+                <g id="UI/Container/Rounded-(100px)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Base"></g>
+                    <g id="UI/Color/Gradient/Default" mask="url(#mask-2)" fill="url(#linearGradient-3)" fill-rule="evenodd">
+                        <rect id="Base" x="0" y="0" width="16" height="16"></rect>
+                    </g>
+                </g>
+                <g id="UI/Border/Rounded-(100px)/1px---10%Black" stroke="#000000" stroke-opacity="0.1" stroke-width="1">
+                    <path d="M8,0.5 C3.85786438,0.5 0.5,3.85786438 0.5,8 C0.5,12.1421356 3.85786438,15.5 8,15.5 C12.1421356,15.5 15.5,12.1421356 15.5,8 C15.5,3.85786438 12.1421356,0.5 8,0.5 Z" id="Border-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

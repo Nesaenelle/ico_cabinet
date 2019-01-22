@@ -11,7 +11,7 @@
             <use xlink:href="#path-1"></use>
         </mask>
         <g id="Info-Icon"></g>
-        <g id="UI/Color/Flat/Grey-50%" mask="url(#mask-2)" fill="#c5d0de">
+        <g id="UI/Color/Flat/Grey-50%" mask="url(#mask-2)" fill="#fff">
             <rect id="Base" x="0" y="0" width="16" height="16"></rect>
         </g>
     </g>

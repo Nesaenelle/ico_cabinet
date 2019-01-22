@@ -1,0 +1,121 @@
+.cabinet {
+    &.light-theme {
+        .cabinet-wallets__item {
+            background: #e2e7ee;
+        }
+
+        .cabinet-block__title {
+            color: #354052;
+        }
+
+        main {
+            .btn {
+                background: #c5d0de;
+                border: 1px solid #bbbbbb;
+            }
+        }
+
+        .checkbox__label {
+            color: #5e6875;
+        }
+
+        .cabinet-tabs__item.active {
+            color: #354052;
+        }
+
+        .cabinet-wallets__item_value {
+            color: #354052;
+        }
+
+        .cabinet-wallets__item_name {
+            color: #354052;
+        }
+
+        .table {
+            .table-filter__text {
+                color: #354052;
+            }
+        }
+
+        .modal.cabinet-modal {
+            .modal-body {
+                background: #e2e7ee;
+            }
+
+            .cabinet-modal__tabs_item {
+                color: #354052;
+
+                &.active {
+                    color: #39b54a;
+                }
+            }
+
+            .cabinet-modal__title {
+                color: #354052;
+            }
+
+            .input__label {
+                color: #7f8fa4;
+            }
+
+            .table .table-head {
+                background: none;
+            }
+            &[data-modal="about"] {
+                .btn {
+                    background: #c5d0de;
+                    border: 1px solid #bbbbbb;
+                }
+            }
+            .table.col-4 {
+                height: 150px;
+                .table-head__col {
+                    color: #7f8fa4;
+                }
+                .table-body__col {
+                    color: #354052; 
+                }
+                .table-body__row {
+                    color: #fff;
+
+                    &:nth-child(even) {background: #fff}
+
+                    &:nth-child(odd) {
+                        background: #f1f4f8;
+                    }
+                }
+            }
+
+            .input__section {
+                color: #354052;
+            }
+
+            .input__attention {
+                color: #7f8fa4;
+            }
+
+            .input span {
+                color: #7f8fa4;
+            }
+
+            .btn {
+                background: #a8aab7;
+
+                &:hover:not(:disabled) {
+                    background: #9fa0a3;
+                }
+
+                &.btn-green {
+                    background: #39b54a;
+
+                    &:hover:not(:disabled) {
+                        background: #2d8e3a;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+}
