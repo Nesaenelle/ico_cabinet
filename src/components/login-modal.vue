@@ -26,17 +26,31 @@
 
       <form @submit.prevent="submit()" @input="validate()">
         <div class="modal-label">Email</div>
-        <div class="modal-input">
-          <input type="text" name="login" placeholder="login" required v-model="form.login">
+        <div
+          class="modal-input"
+          :class="{invalid : dirty.login && errors.login, valid: dirty.login && !errors.login }"
+        >
+          <input
+            type="text"
+            name="login"
+            placeholder="login"
+            required
+            v-model="form.login"
+            @input.once="dirty.login = true"
+          >
         </div>
         <div class="modal-label">Password</div>
-        <div class="modal-input">
+        <div
+          class="modal-input"
+          :class="{invalid : dirty.password && errors.password, valid: dirty.password && !errors.password }"
+        >
           <input
             type="password"
             name="password"
             placeholder="Password"
             required
             v-model="form.password"
+            @input.once="dirty.password = true"
           >
         </div>
         <div class="modal-link">forgot password?</div>
@@ -85,8 +99,8 @@ export default {
       }
     },
     validate() {
-      this.errors.login = !!this.form.login.value;
-      this.errors.password = !!this.form.login.password;
+      this.errors.login = !this.form.login;
+      this.errors.password = !this.form.password;
 
       if (this.errors.login || this.errors.password) {
         this.valid = false;
@@ -100,6 +114,7 @@ export default {
       let password = this.form.password;
       let formData = [{ name: "auth", value: SHA256(login + " " + password) }];
 
+      vm.closeModal();
       $.ajax({
         type: "POST",
         url: "http://" + SERVER_NAME + ":8008/auth",
@@ -120,7 +135,6 @@ export default {
 
             $(".dashboard-orders-table").show();
             $(".logInButton").hide();
-            vm.closeModal();
           }
         },
         error: function(data) {

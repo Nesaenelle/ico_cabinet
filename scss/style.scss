@@ -781,7 +781,7 @@ body.cabinet {
     }
 
     .cabinet-modal {
-     
+        
 
         &[data-modal="about"] {
             .modal-buttons {
@@ -794,9 +794,15 @@ body.cabinet {
             .input__section {
                 margin-top: 40px;   
             }
+            .cabinet-wallets__item_name, .cabinet-wallets__item_logo {
+                cursor: auto;
+            }
+            .icon-star {
+                cursor: auto;
+                margin: 0 0 0 -3px;
+            }
 
             .table .table-head {
-                padding: 0 10px;
                 background: #333f52;
             }
             .table.col-3 {
@@ -807,7 +813,7 @@ body.cabinet {
                 }
             }
             .table.col-4 {
-                    height: 150px;
+                    // height: 150px;
                  .table-body__col,  .table-head__col{
                      color: #fff;
                      &:nth-child(odd) {

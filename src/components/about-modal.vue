@@ -4,9 +4,12 @@
       <div class="js-close-modal modal__close" @click="closeModal()"></div>
       <div class="cabinet-wallets__item_name">
         <img src="img/coins/BTC.svg" alt class="cabinet-wallets__item_logo">
-        Bitcoin
-        <br>BTC
-        <div class="icon-star" @click="addToFavorite()" :class="{active: favorite}"></div>
+        <span style="position: relative">Bitcoin
+          <br>BTC
+          <div class="icon-star" :class="{active: favorite}"></div>
+        </span>
+
+        
       </div>
 
       <div class="input__section">Balance</div>
@@ -35,11 +38,35 @@
           <div class="table-head__col">Fee</div>
           <div class="table-head__col">Total</div>
         </div>
-        <div class="table-body">
+        <div class="table-body" style="height: 140px" ref="table">
           <div class="table-body__row">
             <div class="table-body__col">22-01-2019 13:56</div>
             <div class="table-body__col red">-0.999999999</div>
             <div class="table-body__col red">-0.99</div>
+            <div class="table-body__col">1,100.000000001</div>
+          </div>
+          <div class="table-body__row">
+            <div class="table-body__col">22-01-2019 13:56</div>
+            <div class="table-body__col">1.999999999</div>
+            <div class="table-body__col">1.99</div>
+            <div class="table-body__col">1,100.000000001</div>
+          </div>
+          <div class="table-body__row">
+            <div class="table-body__col">22-01-2019 13:56</div>
+            <div class="table-body__col">1.999999999</div>
+            <div class="table-body__col">1.99</div>
+            <div class="table-body__col">1,100.000000001</div>
+          </div>
+          <div class="table-body__row">
+            <div class="table-body__col">22-01-2019 13:56</div>
+            <div class="table-body__col">1.999999999</div>
+            <div class="table-body__col">1.99</div>
+            <div class="table-body__col">1,100.000000001</div>
+          </div>
+          <div class="table-body__row">
+            <div class="table-body__col">22-01-2019 13:56</div>
+            <div class="table-body__col">1.999999999</div>
+            <div class="table-body__col">1.99</div>
             <div class="table-body__col">1,100.000000001</div>
           </div>
           <div class="table-body__row">
@@ -68,7 +95,13 @@ export default {
       msg: "Hello world!111"
     };
   },
-  mounted() {},
+  mounted() {
+    setTimeout(() => {
+      new SimpleBar(this.$refs["table"], {
+        autoHide: false
+      });
+    }, 0);
+  },
 
   methods: {
     addToFavorite: function() {}

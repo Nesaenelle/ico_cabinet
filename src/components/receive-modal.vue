@@ -17,8 +17,11 @@
           :class="{active: activeTab === 2}"
         >Card</div>
       </div>
-      <form @submit.prevent="submit()" @change="validate()">
-        <div class="input">
+      <form @submit.prevent="submit()" @input="validate()">
+        <div
+          class="input"
+          :class="{invalid : dirty.address && errors.address, valid: dirty.address && !errors.address }"
+        >
           <div class="input__label">Your wallet address
             <app-info-tooltip>какакакаd</app-info-tooltip>
           </div>
@@ -28,6 +31,8 @@
             name="asset"
             placeholder="Paste address"
             autocomplete="off"
+            v-model.number="form.address"
+            @input.once="dirty.address = true"
           >
         </div>
 
@@ -64,7 +69,7 @@
               placeholder
               autocomplete="off"
             >
-            <button class="btn btn-green">Copy</button>
+            <button class="btn btn-green" type="button">Copy</button>
           </div>
         </div>
         <div v-if="activeTab === 2">
@@ -97,18 +102,18 @@
           </div>
           <div class="radio">
             <label>
-              <input type="radio" name="payment" value="paypal">
+              <input type="radio" name="payment" value="paypal"   v-model.number="form.payment">
               <div class="radio__icon"></div>
               <img src="img/icons/Paypal.svg" alt>
             </label>
             
             <label>
-              <input type="radio" name="payment" value="visa">
+              <input type="radio" name="payment" value="visa"   v-model.number="form.payment">
               <div class="radio__icon"></div>
               <img src="img/icons/Visa.svg" alt>
             </label>
           </div>
-          <button class="btn">Continue</button>
+          <button class="btn"  :class="{'btn-green': valid}" type="submit">Continue</button>
         </div>
       </form>
     </div>
@@ -121,7 +126,20 @@ export default {
   mixins: [modalMixin],
   data() {
     return {
-      activeTab: 1
+      activeTab: 1,
+      valid: false,
+      form: {
+        address: "",
+        payment: "paypal"
+      },
+      errors: {
+        address: false,
+        payment: false
+      },
+      dirty: {
+        address: false,
+        payment: false
+      }
     };
   },
   mounted: function() {},
@@ -131,11 +149,20 @@ export default {
     },
     submit: function() {
       if (this.valid) {
-        alert(JSON.stringify(this.form));
-        modalController.closeModal();
+        this.closeModal();
       }
     },
-    validate: function() {}
+    validate: function() {
+      this.errors.address = !this.form.address;
+      this.errors.payment = !this.form.payment;
+      // this.errors.amount = !this.form.amount;
+
+      if (this.errors.address || this.errors.payment) {
+        this.valid = false;
+      } else {
+        this.valid = true;
+      }
+    }
   }
 };
 </script>

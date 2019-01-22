@@ -17,8 +17,11 @@
           @click="notification= false"
         >
       </div>
-      <form @submit.prevent="submit()" @change="validate()">
-        <div class="input">
+      <form @submit.prevent="submit()" @input="validate()">
+        <div
+          class="input"
+          :class="{invalid : dirty.asset && errors.asset, valid: dirty.asset && !errors.asset }"
+        >
           <div class="input__label">Asset
             <app-info-tooltip>
               какакакаd
@@ -32,37 +35,50 @@
             name="asset"
             placeholder="0.00 BTC"
             autocomplete="off"
+            @input.once="dirty.asset = true"
           >
         </div>
-        <div class="input">
+        <div
+          class="input"
+          :class="{invalid : dirty.recipient && errors.recipient, valid: dirty.recipient && !errors.recipient }"
+        >
           <div class="input__label">Recipient
             <app-info-tooltip>какакакаd</app-info-tooltip>
           </div>
           <input
             type="text"
+            v-model.number="form.recipient"
             required="required"
             name="recipient"
             placeholder="Paste address"
             autocomplete="off"
+            @input.once="dirty.recipient = true"
           >
         </div>
-        <div class="input">
+        <div
+          class="input"
+          :class="{invalid : dirty.amount && errors.amount, valid: dirty.amount && !errors.amount }"
+        >
           <div class="input__label">Amount</div>
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <input
               type="text"
               required="required"
               name="amount"
+              v-model.number="form.amount"
               autocomplete="off"
               placeholder="0.00 BTC"
+              @input.once="dirty.amount = true"
             >
             <span>OR</span>
             <input
               type="text"
               required="required"
               name="amount"
+              v-model.number="form.amount"
               autocomplete="off"
               placeholder="0.00 USD"
+              @input.once="dirty.amount = true"
             >
           </div>
         </div>
@@ -82,9 +98,9 @@
 
 
     <script>
-    import { modalMixin } from "../mixins/modal.mixin";
+import { modalMixin } from "../mixins/modal.mixin";
 export default {
-    mixins: [modalMixin],
+  mixins: [modalMixin],
   data: function() {
     return {
       valid: false,
@@ -112,11 +128,20 @@ export default {
   methods: {
     submit: function() {
       if (this.valid) {
-        alert(JSON.stringify(this.form));
-        modalController.closeModal();
+        this.closeModal();
       }
     },
-    validate: function() {}
+    validate: function() {
+      this.errors.asset = !this.form.asset;
+      this.errors.recipient = !this.form.recipient;
+      this.errors.amount = !this.form.amount;
+
+      if (this.errors.asset || this.errors.recipient || this.errors.amount) {
+        this.valid = false;
+      } else {
+        this.valid = true;
+      }
+    }
   }
 };
 </script>

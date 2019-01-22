@@ -8742,7 +8742,15 @@ exports.default = {
       msg: "Hello world!111"
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    var _this = this;
+
+    setTimeout(function () {
+      new SimpleBar(_this.$refs["table"], {
+        autoHide: false
+      });
+    }, 0);
+  },
 
 
   methods: {
@@ -8753,8 +8761,8 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"about"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_name"},[_c('img',{staticClass:"cabinet-wallets__item_logo",attrs:{"src":"img/coins/BTC.svg","alt":""}}),_vm._v("\n      Bitcoin\n      "),_c('br'),_vm._v("BTC\n      "),_c('div',{staticClass:"icon-star",class:{active: _vm.favorite},on:{"click":function($event){_vm.addToFavorite()}}})]),_vm._v(" "),_c('div',{staticClass:"input__section"},[_vm._v("Balance")]),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"input__section"},[_vm._v("Transactipons")]),_vm._v(" "),_vm._m(1),_vm._v(" "),_c('div',{staticClass:"modal-buttons"},[_c('button',{staticClass:"btn",on:{"click":function($event){_vm.openModal('send')}}},[_vm._v("Send")]),_vm._v(" "),_c('button',{staticClass:"btn",on:{"click":function($event){_vm.openModal('receive')}}},[_vm._v("Receive")])])])])}
-__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table col-3"},[_c('div',{staticClass:"table-body"},[_c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("Total")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("USD 999,999.99")])]),_vm._v(" "),_c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("In Orders")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("USD 999,999.99")])])])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table col-4"},[_c('div',{staticClass:"table-head"},[_c('div',{staticClass:"table-head__col"},[_vm._v("Date/time")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Amount")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Fee")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Total")])]),_vm._v(" "),_c('div',{staticClass:"table-body"},[_c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("22-01-2019 13:56")]),_vm._v(" "),_c('div',{staticClass:"table-body__col red"},[_vm._v("-0.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col red"},[_vm._v("-0.99")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.000000001")])]),_vm._v(" "),_c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("22-01-2019 13:56")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.99")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.000000001")])])])])}]
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"about"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_name"},[_c('img',{staticClass:"cabinet-wallets__item_logo",attrs:{"src":"img/coins/BTC.svg","alt":""}}),_vm._v(" "),_c('span',{staticStyle:{"position":"relative"}},[_vm._v("Bitcoin\n        "),_c('br'),_vm._v("BTC\n        "),_c('div',{staticClass:"icon-star",class:{active: _vm.favorite}})])]),_vm._v(" "),_c('div',{staticClass:"input__section"},[_vm._v("Balance")]),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"input__section"},[_vm._v("Transactipons")]),_vm._v(" "),_c('div',{staticClass:"table col-4"},[_vm._m(1),_vm._v(" "),_c('div',{ref:"table",staticClass:"table-body",staticStyle:{"height":"140px"}},[_vm._m(2),_vm._v(" "),_vm._m(3),_vm._v(" "),_vm._m(4),_vm._v(" "),_vm._m(5),_vm._v(" "),_vm._m(6),_vm._v(" "),_vm._m(7)])]),_vm._v(" "),_c('div',{staticClass:"modal-buttons"},[_c('button',{staticClass:"btn",on:{"click":function($event){_vm.openModal('send')}}},[_vm._v("Send")]),_vm._v(" "),_c('button',{staticClass:"btn",on:{"click":function($event){_vm.openModal('receive')}}},[_vm._v("Receive")])])])])}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table col-3"},[_c('div',{staticClass:"table-body"},[_c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("Total")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("USD 999,999.99")])]),_vm._v(" "),_c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("In Orders")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("USD 999,999.99")])])])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-head"},[_c('div',{staticClass:"table-head__col"},[_vm._v("Date/time")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Amount")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Fee")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Total")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("22-01-2019 13:56")]),_vm._v(" "),_c('div',{staticClass:"table-body__col red"},[_vm._v("-0.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col red"},[_vm._v("-0.99")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.000000001")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("22-01-2019 13:56")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.99")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.000000001")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("22-01-2019 13:56")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.99")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.000000001")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("22-01-2019 13:56")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.99")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.000000001")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("22-01-2019 13:56")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.99")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.000000001")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v("22-01-2019 13:56")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.999999999")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1.99")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v("1,100.000000001")])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -8988,8 +8996,8 @@ exports.default = {
       }
     },
     validate: function validate() {
-      this.errors.login = !!this.form.login.value;
-      this.errors.password = !!this.form.login.password;
+      this.errors.login = !this.form.login;
+      this.errors.password = !this.form.password;
 
       if (this.errors.login || this.errors.password) {
         this.valid = false;
@@ -9003,6 +9011,7 @@ exports.default = {
       var password = this.form.password;
       var formData = [{ name: "auth", value: (0, _sha.SHA256)(login + " " + password) }];
 
+      vm.closeModal();
       $.ajax({
         type: "POST",
         url: "http://" + SERVER_NAME + ":8008/auth",
@@ -9021,7 +9030,6 @@ exports.default = {
 
             $(".dashboard-orders-table").show();
             $(".logInButton").hide();
-            vm.closeModal();
           }
         },
         error: function error(data) {
@@ -9036,7 +9044,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal",attrs:{"data-modal":"sign-in"}},[_c('div',{staticClass:"modal-body"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"js-close-modal modal__close"}),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('div',{staticClass:"modal-line-text"}),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"modal-label"},[_vm._v("Email")]),_vm._v(" "),_c('div',{staticClass:"modal-input"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.login),expression:"form.login"}],attrs:{"type":"text","name":"login","placeholder":"login","required":""},domProps:{"value":(_vm.form.login)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "login", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"modal-label"},[_vm._v("Password")]),_vm._v(" "),_c('div',{staticClass:"modal-input"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.password),expression:"form.password"}],attrs:{"type":"password","name":"password","placeholder":"Password","required":""},domProps:{"value":(_vm.form.password)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "password", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"modal-link"},[_vm._v("forgot password?")]),_vm._v(" "),_c('button',{staticClass:"btn",attrs:{"type":"submit"}},[_vm._v("LOG IN")]),_vm._v(" "),_c('div',{staticClass:"modal-bottom-text"},[_vm._v("\n        Not on Exchange#2 yet?\n        "),_c('span',{staticClass:"modal-link js-popup",on:{"click":function($event){_vm.openModal('sign-up')}}},[_vm._v("register")])])])])])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal",attrs:{"data-modal":"sign-in"}},[_c('div',{staticClass:"modal-body"},[_vm._m(0),_vm._v(" "),_c('div',{staticClass:"js-close-modal modal__close"}),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('div',{staticClass:"modal-line-text"}),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"modal-label"},[_vm._v("Email")]),_vm._v(" "),_c('div',{staticClass:"modal-input",class:{invalid : _vm.dirty.login && _vm.errors.login, valid: _vm.dirty.login && !_vm.errors.login }},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.login),expression:"form.login"}],attrs:{"type":"text","name":"login","placeholder":"login","required":""},domProps:{"value":(_vm.form.login)},on:{"~input":function($event){_vm.dirty.login = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "login", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"modal-label"},[_vm._v("Password")]),_vm._v(" "),_c('div',{staticClass:"modal-input",class:{invalid : _vm.dirty.password && _vm.errors.password, valid: _vm.dirty.password && !_vm.errors.password }},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.password),expression:"form.password"}],attrs:{"type":"password","name":"password","placeholder":"Password","required":""},domProps:{"value":(_vm.form.password)},on:{"~input":function($event){_vm.dirty.password = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "password", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"modal-link"},[_vm._v("forgot password?")]),_vm._v(" "),_c('button',{staticClass:"btn",attrs:{"type":"submit"}},[_vm._v("LOG IN")]),_vm._v(" "),_c('div',{staticClass:"modal-bottom-text"},[_vm._v("\n        Not on Exchange#2 yet?\n        "),_c('span',{staticClass:"modal-link js-popup",on:{"click":function($event){_vm.openModal('sign-up')}}},[_vm._v("register")])])])])])}
 __vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal-logo"},[_c('img',{staticClass:"modal-logo",attrs:{"src":"img/logo.svg"}})])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal-line-text"},[_c('span',[_vm._v("LOG IN")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('form',[_c('div',{staticClass:"modal-text"},[_vm._v("\n        Please check that you are visiting\n        "),_c('a',{attrs:{"href":""}},[_vm._v("https://exchange2.net")])]),_vm._v(" "),_c('div',{staticClass:"modal-input-link"},[_c('div',{staticClass:"modal-input-link-icon"},[_c('img',{attrs:{"src":"img/padlock.svg","alt":""}})]),_vm._v(" "),_c('span',[_c('b',[_vm._v("https:")]),_vm._v("//www.exchange2.net\n        ")])])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -9056,19 +9064,26 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _stringify = require("babel-runtime/core-js/json/stringify");
-
-var _stringify2 = _interopRequireDefault(_stringify);
-
 var _modal = require("../mixins/modal.mixin");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   mixins: [_modal.modalMixin],
   data: function data() {
     return {
-      activeTab: 1
+      activeTab: 1,
+      valid: false,
+      form: {
+        address: "",
+        payment: "paypal"
+      },
+      errors: {
+        address: false,
+        payment: false
+      },
+      dirty: {
+        address: false,
+        payment: false
+      }
     };
   },
 
@@ -9079,19 +9094,28 @@ exports.default = {
     },
     submit: function submit() {
       if (this.valid) {
-        alert((0, _stringify2.default)(this.form));
-        modalController.closeModal();
+        this.closeModal();
       }
     },
-    validate: function validate() {}
+    validate: function validate() {
+      this.errors.address = !this.form.address;
+      this.errors.payment = !this.form.payment;
+
+
+      if (this.errors.address || this.errors.payment) {
+        this.valid = false;
+      } else {
+        this.valid = true;
+      }
+    }
   }
 };
 })()
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"receive"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__tabs"},[_c('div',{staticClass:"cabinet-modal__tabs_item",class:{active: _vm.activeTab === 1},on:{"click":function($event){_vm.changeTab(1)}}},[_vm._v("Cryptocurrency")]),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__tabs_item",class:{active: _vm.activeTab === 2},on:{"click":function($event){_vm.changeTab(2)}}},[_vm._v("Card")])]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"change":function($event){_vm.validate()}}},[_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Your wallet address\n          "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"asset","placeholder":"Paste address","autocomplete":"off"}})]),_vm._v(" "),_vm._m(1),_vm._v(" "),(_vm.activeTab === 1)?_c('div',[_c('div',{staticClass:"input__section"},[_vm._v("Invoice")]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Amount Invoice\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"recipient","placeholder":"Value","autocomplete":"off"}})]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Link to an Invoice\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","value":"http://exchange2.net/dfgyhhnm,l;lkjhgc","required":"required","name":"recipient","placeholder":"","autocomplete":"off"}}),_vm._v(" "),_c('button',{staticClass:"btn btn-green"},[_vm._v("Copy")])])]):_vm._e(),_vm._v(" "),(_vm.activeTab === 2)?_c('div',[_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Amount your pay\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"recipient","placeholder":"0.00 USD","autocomplete":"off"}})]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Approximately yoy will get\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"recipient","placeholder":"0.00 BTC","autocomplete":"off"}})]),_vm._v(" "),_vm._m(2),_vm._v(" "),_vm._m(3),_vm._v(" "),_c('button',{staticClass:"btn"},[_vm._v("Continue")])]):_vm._e()])])])}
-__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"cabinet-modal__title"},[_c('span',[_vm._v("Receive Bitcoins")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input__attention"},[_c('img',{attrs:{"src":"img/info.svg","alt":""}}),_vm._v("\n        Не отправляйте ETH со смарт-контрактов! Не отправляйте ERC20-токены!\n        Проверьте, не использует ли ваш кошелёк или биржа смарт-контракты для\n        отправки ETH. Мы не принимаем такие переводы и не можем возместить их.\n        Вы потеряете эти деньги.\n      ")])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Payment service")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"radio"},[_c('label',[_c('input',{attrs:{"type":"radio","name":"payment","value":"paypal"}}),_vm._v(" "),_c('div',{staticClass:"radio__icon"}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/Paypal.svg","alt":""}})]),_vm._v(" "),_c('label',[_c('input',{attrs:{"type":"radio","name":"payment","value":"visa"}}),_vm._v(" "),_c('div',{staticClass:"radio__icon"}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/Visa.svg","alt":""}})])])}]
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"receive"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__tabs"},[_c('div',{staticClass:"cabinet-modal__tabs_item",class:{active: _vm.activeTab === 1},on:{"click":function($event){_vm.changeTab(1)}}},[_vm._v("Cryptocurrency")]),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__tabs_item",class:{active: _vm.activeTab === 2},on:{"click":function($event){_vm.changeTab(2)}}},[_vm._v("Card")])]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"input",class:{invalid : _vm.dirty.address && _vm.errors.address, valid: _vm.dirty.address && !_vm.errors.address }},[_c('div',{staticClass:"input__label"},[_vm._v("Your wallet address\n          "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.address),expression:"form.address",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"asset","placeholder":"Paste address","autocomplete":"off"},domProps:{"value":(_vm.form.address)},on:{"~input":function($event){_vm.dirty.address = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "address", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}})]),_vm._v(" "),_vm._m(1),_vm._v(" "),(_vm.activeTab === 1)?_c('div',[_c('div',{staticClass:"input__section"},[_vm._v("Invoice")]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Amount Invoice\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"recipient","placeholder":"Value","autocomplete":"off"}})]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Link to an Invoice\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","value":"http://exchange2.net/dfgyhhnm,l;lkjhgc","required":"required","name":"recipient","placeholder":"","autocomplete":"off"}}),_vm._v(" "),_c('button',{staticClass:"btn btn-green",attrs:{"type":"button"}},[_vm._v("Copy")])])]):_vm._e(),_vm._v(" "),(_vm.activeTab === 2)?_c('div',[_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Amount your pay\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"recipient","placeholder":"0.00 USD","autocomplete":"off"}})]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Approximately yoy will get\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"recipient","placeholder":"0.00 BTC","autocomplete":"off"}})]),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('div',{staticClass:"radio"},[_c('label',[_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.payment),expression:"form.payment",modifiers:{"number":true}}],attrs:{"type":"radio","name":"payment","value":"paypal"},domProps:{"checked":_vm._q(_vm.form.payment,_vm._n("paypal"))},on:{"change":function($event){_vm.$set(_vm.form, "payment", _vm._n("paypal"))}}}),_vm._v(" "),_c('div',{staticClass:"radio__icon"}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/Paypal.svg","alt":""}})]),_vm._v(" "),_c('label',[_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.payment),expression:"form.payment",modifiers:{"number":true}}],attrs:{"type":"radio","name":"payment","value":"visa"},domProps:{"checked":_vm._q(_vm.form.payment,_vm._n("visa"))},on:{"change":function($event){_vm.$set(_vm.form, "payment", _vm._n("visa"))}}}),_vm._v(" "),_c('div',{staticClass:"radio__icon"}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/Visa.svg","alt":""}})])]),_vm._v(" "),_c('button',{staticClass:"btn",class:{'btn-green': _vm.valid},attrs:{"type":"submit"}},[_vm._v("Continue")])]):_vm._e()])])])}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"cabinet-modal__title"},[_c('span',[_vm._v("Receive Bitcoins")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input__attention"},[_c('img',{attrs:{"src":"img/info.svg","alt":""}}),_vm._v("\n        Не отправляйте ETH со смарт-контрактов! Не отправляйте ERC20-токены!\n        Проверьте, не использует ли ваш кошелёк или биржа смарт-контракты для\n        отправки ETH. Мы не принимаем такие переводы и не можем возместить их.\n        Вы потеряете эти деньги.\n      ")])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Payment service")])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -9102,7 +9126,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-e7001d46", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":22,"babel-runtime/core-js/json/stringify":1,"vue":7,"vue-hot-reload-api":6}],15:[function(require,module,exports){
+},{"../mixins/modal.mixin":22,"vue":7,"vue-hot-reload-api":6}],15:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9308,13 +9332,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _stringify = require("babel-runtime/core-js/json/stringify");
-
-var _stringify2 = _interopRequireDefault(_stringify);
-
 var _modal = require("../mixins/modal.mixin");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   mixins: [_modal.modalMixin],
@@ -9345,19 +9363,28 @@ exports.default = {
   methods: {
     submit: function submit() {
       if (this.valid) {
-        alert((0, _stringify2.default)(this.form));
-        modalController.closeModal();
+        this.closeModal();
       }
     },
-    validate: function validate() {}
+    validate: function validate() {
+      this.errors.asset = !this.form.asset;
+      this.errors.recipient = !this.form.recipient;
+      this.errors.amount = !this.form.amount;
+
+      if (this.errors.asset || this.errors.recipient || this.errors.amount) {
+        this.valid = false;
+      } else {
+        this.valid = true;
+      }
+    }
   }
 };
 })()
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"send"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__notitication",class:{hidden: !_vm.notification}},[_c('img',{attrs:{"src":"img/info-white.svg","alt":""}}),_vm._v("\n      You havn't amount BTC-coins\n      "),_c('img',{staticClass:"cabinet-modal__notitication_close",attrs:{"src":"img/cancel-white.svg","alt":""},on:{"click":function($event){_vm.notification= false}}})]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"change":function($event){_vm.validate()}}},[_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Asset\n          "),_c('app-info-tooltip',[_vm._v("\n            какакакаd\n            окакоаз\n          ")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.asset),expression:"form.asset",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"asset","placeholder":"0.00 BTC","autocomplete":"off"},domProps:{"value":(_vm.form.asset)},on:{"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "asset", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}})]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Recipient\n          "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"recipient","placeholder":"Paste address","autocomplete":"off"}})]),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2),_vm._v(" "),_vm._m(3),_vm._v(" "),_c('button',{staticClass:"btn",class:{'btn-green': _vm.valid},attrs:{"type":"submit"}},[_vm._v("SEND")])])])])}
-__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"cabinet-modal__title"},[_c('span',[_vm._v("Send Bitcoins")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Amount")]),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","justify-content":"space-between","align-items":"center"}},[_c('input',{attrs:{"type":"text","required":"required","name":"amount","autocomplete":"off","placeholder":"0.00 BTC"}}),_vm._v(" "),_c('span',[_vm._v("OR")]),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"amount","autocomplete":"off","placeholder":"0.00 USD"}})])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Transaction Fee 0.0005 BTC")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Description")]),_vm._v(" "),_c('textarea',{attrs:{"name":"description","placeholder":"Say hello!"}})])}]
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"send"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__notitication",class:{hidden: !_vm.notification}},[_c('img',{attrs:{"src":"img/info-white.svg","alt":""}}),_vm._v("\n      You havn't amount BTC-coins\n      "),_c('img',{staticClass:"cabinet-modal__notitication_close",attrs:{"src":"img/cancel-white.svg","alt":""},on:{"click":function($event){_vm.notification= false}}})]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"input",class:{invalid : _vm.dirty.asset && _vm.errors.asset, valid: _vm.dirty.asset && !_vm.errors.asset }},[_c('div',{staticClass:"input__label"},[_vm._v("Asset\n          "),_c('app-info-tooltip',[_vm._v("\n            какакакаd\n            окакоаз\n          ")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.asset),expression:"form.asset",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"asset","placeholder":"0.00 BTC","autocomplete":"off"},domProps:{"value":(_vm.form.asset)},on:{"~input":function($event){_vm.dirty.asset = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "asset", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}})]),_vm._v(" "),_c('div',{staticClass:"input",class:{invalid : _vm.dirty.recipient && _vm.errors.recipient, valid: _vm.dirty.recipient && !_vm.errors.recipient }},[_c('div',{staticClass:"input__label"},[_vm._v("Recipient\n          "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.recipient),expression:"form.recipient",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"recipient","placeholder":"Paste address","autocomplete":"off"},domProps:{"value":(_vm.form.recipient)},on:{"~input":function($event){_vm.dirty.recipient = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "recipient", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}})]),_vm._v(" "),_c('div',{staticClass:"input",class:{invalid : _vm.dirty.amount && _vm.errors.amount, valid: _vm.dirty.amount && !_vm.errors.amount }},[_c('div',{staticClass:"input__label"},[_vm._v("Amount")]),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","justify-content":"space-between","align-items":"center"}},[_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.amount),expression:"form.amount",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"amount","autocomplete":"off","placeholder":"0.00 BTC"},domProps:{"value":(_vm.form.amount)},on:{"~input":function($event){_vm.dirty.amount = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "amount", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}}),_vm._v(" "),_c('span',[_vm._v("OR")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.amount),expression:"form.amount",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"amount","autocomplete":"off","placeholder":"0.00 USD"},domProps:{"value":(_vm.form.amount)},on:{"~input":function($event){_vm.dirty.amount = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "amount", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}})])]),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('button',{staticClass:"btn",class:{'btn-green': _vm.valid},attrs:{"type":"submit"}},[_vm._v("SEND")])])])])}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"cabinet-modal__title"},[_c('span',[_vm._v("Send Bitcoins")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Transaction Fee 0.0005 BTC")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Description")]),_vm._v(" "),_c('textarea',{attrs:{"name":"description","placeholder":"Say hello!"}})])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -9368,7 +9395,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-0b3658fe", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":22,"babel-runtime/core-js/json/stringify":1,"vue":7,"vue-hot-reload-api":6}],18:[function(require,module,exports){
+},{"../mixins/modal.mixin":22,"vue":7,"vue-hot-reload-api":6}],18:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9888,7 +9915,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-0d26f7b4", __vue__options__)
   } else {
-    hotAPI.reload("data-v-0d26f7b4", __vue__options__)
+    hotAPI.rerender("data-v-0d26f7b4", __vue__options__)
   }
 })()}
 },{"../shared.service.js":24,"vue":7,"vue-hot-reload-api":6}],21:[function(require,module,exports){
