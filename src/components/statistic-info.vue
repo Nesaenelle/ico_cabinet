@@ -3,7 +3,11 @@
     <div class="cabinet-block__title">Statistic Info</div>
     <div class="table col-5">
       <div class="table-filter">
-        <input type="text" class="search-input">
+        <div class="table-filter__input">
+           <input type="text" class="search-input" maxlength="40">
+          <img src="img/search.svg" alt="">
+        </div>
+       
       </div>
       <div class="table-head filled">
         <div class="table-head__col">Tokens</div>

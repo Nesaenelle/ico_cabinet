@@ -352,11 +352,12 @@ body.cabinet {
                 padding: 4px 6px;
 
                 input {
-                    padding: 10px;
+                    padding: 10px 10px 10px 35px;
                     border: none;
                     background: #fff;
                     border-radius: 4px;
                     width: 294px;
+                    color: #273142;
 
                     &:internal-autofill-selected {
                         border: none;
@@ -664,7 +665,17 @@ body.cabinet {
             width: 100%;
             height: 28px;
         }
-
+    
+        .table-filter__input {
+            position: relative;
+            img {
+                position: absolute;
+                left: 10px;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
         .table-filter__text {
             margin-right: 10px;
             font-size: 14px;

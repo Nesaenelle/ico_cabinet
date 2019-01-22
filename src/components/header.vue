@@ -51,8 +51,10 @@
 
 <script>
 import Clock from "./clock.vue";
+import { modalMixin } from "../mixins/modal.mixin";
 
 export default {
+  mixins: [modalMixin],
   components: {
     "app-clock": Clock
   },
