@@ -57,8 +57,10 @@
               autocomplete="off"
             >
           </div>
-          <div style="    display: flex; margin-top: 10px;margin-bottom: 20px;
-    align-items: flex-end; justify-content: space-between;">
+          <div
+            style="    display: flex; margin-top: 14px;margin-bottom: 20px;
+    align-items: flex-end; justify-content: space-between;"
+          >
             <div class="input" style="width: 80%">
               <div class="input__label">Link to an Invoice
                 <app-info-tooltip>какакакаd</app-info-tooltip>
@@ -72,8 +74,12 @@
                 autocomplete="off"
               >
             </div>
-            <button class="btn btn-green" type="button" style="margin: 0 0 3px 0; width: 72px;
-  height: 30px;">Copy</button>
+            <button
+              class="btn btn-green"
+              type="button"
+              style="margin: 0 0 3px 0; width: 72px;
+  height: 30px;"
+            >Copy</button>
           </div>
         </div>
         <div v-if="activeTab === 2">
@@ -81,25 +87,13 @@
             <div class="input__label">Amount your pay
               <app-info-tooltip>какакакаd</app-info-tooltip>
             </div>
-            <input
-              type="text"
-             
-              name="recipient"
-              placeholder="0.00 USD"
-              autocomplete="off"
-            >
+            <input type="text" name="recipient" placeholder="0.00 USD" autocomplete="off">
           </div>
           <div class="input">
             <div class="input__label">Approximately yoy will get
               <app-info-tooltip>какакакаd</app-info-tooltip>
             </div>
-            <input
-              type="text"
-             
-              name="recipient"
-              placeholder="0.00 BTC"
-              autocomplete="off"
-            >
+            <input type="text" name="recipient" placeholder="0.00 BTC" autocomplete="off">
           </div>
           <div class="input">
             <div class="input__label">Payment service</div>
@@ -115,6 +109,7 @@
               <input type="radio" name="payment" value="visa" v-model.number="form.payment">
               <div class="radio__icon"></div>
               <img src="img/icons/Visa.svg" alt>
+              <img src="img/icons/mastercard.svg" alt>
             </label>
           </div>
           <button class="btn" :class="{'btn-green': valid}" type="submit">Continue</button>

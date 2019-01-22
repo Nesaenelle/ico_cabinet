@@ -152,6 +152,9 @@ body.cabinet {
             display: flex;
             cursor: pointer;
             margin-right: 30px;
+            img + img {
+                margin-left: 5px;
+            }
         }
 
         &__icon {
@@ -842,7 +845,7 @@ body.cabinet {
         &[data-modal="receive"] {
             
             .modal-body {
-                height: 564px;  
+                height: 580px;  
             }
             .input,
             .input__attention, {
@@ -909,7 +912,7 @@ body.cabinet {
 
         &__tabs {
             display: flex;
-            margin: 40px 0 20px 0;
+            margin: 40px 0 15px 0;
 
             &_item {
                 font-size: 14px;
@@ -927,9 +930,10 @@ body.cabinet {
 
         .input__section {
             color: #fff;
-            margin-bottom: 10px;
+            margin-bottom: 16px;
             font-size: 14px;
             font-weight: 600;
+            margin-top: 47px;
         }
 
         .input__attention {
@@ -937,9 +941,9 @@ body.cabinet {
             color: #fff;
             align-items: flex-start;
             display: flex;
-            line-height: 1.6em;
+            line-height: 1.7em;
             margin-top: 8px;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
 
             img {
                 margin-right: 10px;
@@ -969,6 +973,7 @@ body.cabinet {
         }
 
         .btn {
+            font-family: ProximaNova;
             background: #333f52;
 
             &:hover:not(:disabled) {

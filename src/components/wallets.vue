@@ -83,35 +83,33 @@
     </div>
 
     <div class="cabinet-tabs-content" :class="{active: activeTab === 2}" style="margin-top: 4px;">
-      <div class="scroller-x">
-        <div class="table col-6">
-          <div class="table-filter">
-            <div class="table-filter__text">View on</div>
-            <div class="dropdown dropdown-grey dropdown-big">
-              <div class="dropdown-value">Coins</div>
-            </div>
+      <div class="table col-6">
+        <div class="table-filter">
+          <div class="table-filter__text">View on</div>
+          <div class="dropdown dropdown-grey dropdown-big">
+            <div class="dropdown-value">Coins</div>
           </div>
-          <div class="table-head filled">
-            <div class="table-head__col">Tokens</div>
-            <div class="table-head__col">Date</div>
-            <div class="table-head__col">Status</div>
-            <div class="table-head__col">Amount</div>
-            <div class="table-head__col">Fee</div>
-            <div class="table-head__col">Total Balance</div>
-          </div>
-          <div class="table-body filled" ref="transactions">
-            <div class="table-empty" v-if="!transactions.length">Empty</div>
-            <div class="table-body__row" v-if="transactions.length" v-for="item in transactions">
-              <div class="table-body__col">
-                <img :src="item.icon">
-                {{item.name}}
-              </div>
-              <div class="table-body__col">{{item.date}}</div>
-              <div class="table-body__col">{{item.status}}</div>
-              <div class="table-body__col">{{item.amount}}</div>
-              <div class="table-body__col">{{item.fee}}</div>
-              <div class="table-body__col">{{item.totalBalance}}</div>
+        </div>
+        <div class="table-head filled">
+          <div class="table-head__col">Tokens</div>
+          <div class="table-head__col">Date</div>
+          <div class="table-head__col">Status</div>
+          <div class="table-head__col">Amount</div>
+          <div class="table-head__col">Fee</div>
+          <div class="table-head__col">Total Balance</div>
+        </div>
+        <div class="table-body filled" ref="transactions">
+          <div class="table-empty" v-if="!transactions.length">Empty</div>
+          <div class="table-body__row" v-if="transactions.length" v-for="item in transactions">
+            <div class="table-body__col">
+              <img :src="item.icon">
+              {{item.name}}
             </div>
+            <div class="table-body__col">{{item.date}}</div>
+            <div class="table-body__col">{{item.status}}</div>
+            <div class="table-body__col">{{item.amount}}</div>
+            <div class="table-body__col">{{item.fee}}</div>
+            <div class="table-body__col">{{item.totalBalance}}</div>
           </div>
         </div>
       </div>
