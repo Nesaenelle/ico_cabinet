@@ -1,4 +1,4 @@
-    <template>
+<template>
   <div class="dashboard-block statistic">
     <div class="cabinet-block__title">Statistic Info</div>
     <div class="table col-5">

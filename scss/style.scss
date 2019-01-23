@@ -14,9 +14,9 @@ body.cabinet {
     .simplebar-content {
         padding-right: 20px;
 
-        @media screen and (max-width: 768px) {
-            padding-right: 0px;
-        }
+        // @media screen and (max-width: 768px) {
+        //     padding-right: 0px;
+        // }
     }
 
     @font-face {
@@ -682,9 +682,9 @@ body.cabinet {
 
         .table-head {
             padding-right: 30px;
-            @media screen and (max-width: 768px) {
-                padding: 0 10px;
-            }
+            // @media screen and (max-width: 768px) {
+            //     padding: 0 10px;
+            // }
         }
 
         .table-body__row {

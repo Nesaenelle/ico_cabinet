@@ -482,7 +482,9 @@ export default {
     }
   },
   methods: {
-    add: function() {},
+    add: function() {
+      ModalService.openModal("receive");
+    },
     send: function() {
       ModalService.openModal("send");
     },

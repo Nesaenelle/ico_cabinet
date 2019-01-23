@@ -9904,7 +9904,9 @@ exports.default = {
     }
   },
   methods: {
-    add: function add() {},
+    add: function add() {
+      _sharedService2.default.openModal("receive");
+    },
     send: function send() {
       _sharedService2.default.openModal("send");
     },
@@ -9954,7 +9956,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-0d26f7b4", __vue__options__)
   } else {
-    hotAPI.rerender("data-v-0d26f7b4", __vue__options__)
+    hotAPI.reload("data-v-0d26f7b4", __vue__options__)
   }
 })()}
 },{"../shared.service.js":25,"vue":7,"vue-hot-reload-api":6}],22:[function(require,module,exports){
