@@ -286,12 +286,32 @@ body.cabinet {
                 }
             }
 
-            .table.col-3 .table-body {
-                height: 225px;
-
-                // overflow: hidden;
-                @media screen and (max-width: 1280px) {
+            .table.col-3  {
+                .table-body{
                     height: 225px;
+
+                    // overflow: hidden;
+                    @media screen and (max-width: 1280px) {
+                        height: 225px;
+                    }
+                }
+  
+
+                .table-body__col,
+                .table-head__col {
+                    &:nth-child(1) {
+                        width: 30%;
+                    }
+    
+                    &:nth-child(2) {
+                        width: 30%;
+                        text-align: left;
+                    }
+    
+                    &:nth-child(3) {
+                        width: 30%;
+                        text-align: left;
+                    }
                 }
             }
 
