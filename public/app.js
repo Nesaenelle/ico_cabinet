@@ -8750,7 +8750,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-327e8ed1", __vue__options__)
   }
 })()}
-},{"./components/about-modal.vue":10,"./components/account.vue":11,"./components/header.vue":13,"./components/login-modal.vue":14,"./components/receive-modal.vue":15,"./components/registration-modal.vue":16,"./components/security.vue":17,"./components/send-modal.vue":18,"./components/statistic-info.vue":19,"./components/tooltip.vue":20,"./components/wallets.vue":21,"vue":7,"vue-hot-reload-api":6}],10:[function(require,module,exports){
+},{"./components/about-modal.vue":10,"./components/account.vue":11,"./components/header.vue":14,"./components/login-modal.vue":15,"./components/receive-modal.vue":16,"./components/registration-modal.vue":17,"./components/security.vue":18,"./components/send-modal.vue":19,"./components/statistic-info.vue":20,"./components/tooltip.vue":21,"./components/wallets.vue":22,"vue":7,"vue-hot-reload-api":6}],10:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -8798,7 +8798,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-276ea3f2", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":23,"vue":7,"vue-hot-reload-api":6}],11:[function(require,module,exports){
+},{"../mixins/modal.mixin":24,"vue":7,"vue-hot-reload-api":6}],11:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -8816,6 +8816,7 @@ exports.default = {
   name: "app-account",
   data: function data() {
     return {
+      showConfirm: false,
       valid: false,
       form: {
         email: "",
@@ -8871,7 +8872,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dashboard-block account"},[_c('div',{staticClass:"cabinet-block__title"},[_vm._v("Account")]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"input",class:{invalid : _vm.dirty.email && _vm.errors.email, valid: _vm.dirty.email && !_vm.errors.email }},[_c('div',{staticClass:"input__label"},[_vm._v("Login email")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.email),expression:"form.email"}],attrs:{"type":"email","required":"","name":"email","placeholder":"your@email.com","autocomplete":"off"},domProps:{"value":(_vm.form.email)},on:{"~input":function($event){_vm.dirty.email = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "email", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"input",class:{invalid : _vm.dirty.password && _vm.errors.password, valid: _vm.dirty.password && !_vm.errors.password }},[_c('div',{staticClass:"input__label"},[_vm._v("Password")]),_vm._v(" "),_c('app-info-tooltip',[_vm._v("какакакаd окакоаз шкашкёqw ertyuiopokjhgfdsd fghjkjhgfdsfghjkoijuhygt fdfghjkloiuytgf")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.password),expression:"form.password"}],attrs:{"type":"password","maxlength":"30","required":"","placeholder":"***********","autocomplete":"off"},domProps:{"value":(_vm.form.password)},on:{"~input":function($event){_vm.dirty.password = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "password", $event.target.value)}}})],1),_vm._v(" "),_c('div',{staticClass:"input",class:{hidden: !_vm.form.password, invalid : _vm.dirty.passwordConfirm && _vm.errors.passwordConfirm, valid: _vm.dirty.passwordConfirm &&  !_vm.errors.passwordConfirm }},[_c('div',{staticClass:"input__label"},[_vm._v("Password Again")]),_vm._v(" "),_c('app-info-tooltip',[_vm._v("Title")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.passwordConfirm),expression:"form.passwordConfirm"}],attrs:{"type":"password","maxlength":"30","required":"","placeholder":"***********","autocomplete":"off"},domProps:{"value":(_vm.form.passwordConfirm)},on:{"~input":function($event){_vm.dirty.passwordConfirm = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "passwordConfirm", $event.target.value)}}})],1),_vm._v(" "),_c('div',{staticClass:"account-buttons"},[_c('button',{staticClass:"btn btn-big",class:{'btn-green': _vm.valid},attrs:{"type":"submit"}},[_vm._v("Change")])])])])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dashboard-block account"},[_c('div',{staticClass:"cabinet-block__title"},[_vm._v("Account")]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"input",class:{invalid : _vm.dirty.email && _vm.errors.email, valid: _vm.dirty.email && !_vm.errors.email }},[_c('div',{staticClass:"input__label"},[_vm._v("Login email")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.email),expression:"form.email"}],attrs:{"type":"email","required":"","name":"email","placeholder":"your@email.com"},domProps:{"value":(_vm.form.email)},on:{"~input":function($event){_vm.dirty.email = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "email", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"input",class:{invalid : _vm.dirty.password && _vm.errors.password, valid: _vm.dirty.password && !_vm.errors.password }},[_c('div',{staticClass:"input__label"},[_vm._v("Password")]),_vm._v(" "),_c('app-info-tooltip',[_vm._v("какакакаd окакоаз шкашкёqw ertyuiopokjhgfdsd fghjkjhgfdsfghjkoijuhygt fdfghjkloiuytgf")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.password),expression:"form.password"}],attrs:{"type":"password","maxlength":"30","name":"password","required":"","placeholder":"***********"},domProps:{"value":(_vm.form.password)},on:{"~input":function($event){_vm.dirty.password = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "password", $event.target.value)}}})],1),_vm._v(" "),_c('div',{staticClass:"input",class:{hidden: !_vm.showConfirm, invalid : _vm.dirty.passwordConfirm && _vm.errors.passwordConfirm, valid: _vm.dirty.passwordConfirm &&  !_vm.errors.passwordConfirm }},[_c('div',{staticClass:"input__label"},[_vm._v("Password Again")]),_vm._v(" "),_c('app-info-tooltip',[_vm._v("Title")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.passwordConfirm),expression:"form.passwordConfirm"}],attrs:{"type":"password","maxlength":"30","required":"","name":"passwordConfirm","placeholder":"***********"},domProps:{"value":(_vm.form.passwordConfirm)},on:{"~input":function($event){_vm.dirty.passwordConfirm = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "passwordConfirm", $event.target.value)}}})],1),_vm._v(" "),_c('div',{staticClass:"account-buttons"},[(!_vm.showConfirm)?_c('button',{staticClass:"btn btn-big",attrs:{"type":"button"},on:{"click":function($event){_vm.showConfirm = true}}},[_vm._v("Change")]):_vm._e(),_vm._v(" "),(_vm.showConfirm)?_c('button',{staticClass:"btn btn-big",class:{'btn-green': _vm.valid},attrs:{"type":"submit"}},[_vm._v("Change")]):_vm._e()])])])}
 __vue__options__.staticRenderFns = []
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -8942,6 +8943,52 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = {
+  name: "app-dropdown",
+  props: {
+    items: Array
+  },
+  data: function data() {
+    return {
+      opened: false,
+      activeValue: this.items[0]
+    };
+  },
+  mounted: function mounted() {},
+
+  methods: {
+    toggle: function toggle() {
+      this.opened = !this.opened;
+    },
+    select: function select(item) {
+      this.activeValue = item;
+      this.opened = false;
+    }
+  }
+};
+})()
+if (module.exports.__esModule) module.exports = module.exports.default
+var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
+if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dropdown dropdown-grey dropdown-big",class:{opened: _vm.opened}},[_c('div',{staticClass:"dropdown-value",on:{"click":function($event){_vm.toggle()}}},[_vm._v(_vm._s(_vm.activeValue))]),_vm._v(" "),_c('div',{staticClass:"dropdown-content"},[_c('ul',_vm._l((_vm.items),function(item,key){return _c('li',{key:key,on:{"click":function($event){_vm.select(item)}}},[_vm._v(_vm._s(item))])}),0)])])}
+__vue__options__.staticRenderFns = []
+if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9f024032", __vue__options__)
+  } else {
+    hotAPI.reload("data-v-9f024032", __vue__options__)
+  }
+})()}
+},{"vue":7,"vue-hot-reload-api":6}],14:[function(require,module,exports){
+;(function(){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _clock = require("./clock.vue");
 
@@ -8983,7 +9030,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-463037e3", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":23,"./clock.vue":12,"vue":7,"vue-hot-reload-api":6}],14:[function(require,module,exports){
+},{"../mixins/modal.mixin":24,"./clock.vue":12,"vue":7,"vue-hot-reload-api":6}],15:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9084,7 +9131,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-199d523a", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":23,"../sha":24,"vue":7,"vue-hot-reload-api":6}],15:[function(require,module,exports){
+},{"../mixins/modal.mixin":24,"../sha":25,"vue":7,"vue-hot-reload-api":6}],16:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9154,7 +9201,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-e7001d46", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":23,"vue":7,"vue-hot-reload-api":6}],16:[function(require,module,exports){
+},{"../mixins/modal.mixin":24,"vue":7,"vue-hot-reload-api":6}],17:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9263,7 +9310,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-5dd04aef", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":23,"vue":7,"vue-hot-reload-api":6}],17:[function(require,module,exports){
+},{"../mixins/modal.mixin":24,"vue":7,"vue-hot-reload-api":6}],18:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9340,7 +9387,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dashboard-block security"},[_c('div',{staticClass:"cabinet-block__title"},[_vm._v("Security")]),_vm._v(" "),_c('div',{staticClass:"input__label"},[_vm._v("Authentication")]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"change":function($event){_vm.validate()}}},[_c('div',[_c('label',{staticClass:"checkbox"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.smsAuth),expression:"form.smsAuth"}],attrs:{"type":"checkbox","name":"sms","reuired":""},domProps:{"checked":Array.isArray(_vm.form.smsAuth)?_vm._i(_vm.form.smsAuth,null)>-1:(_vm.form.smsAuth)},on:{"change":function($event){var $$a=_vm.form.smsAuth,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.form, "smsAuth", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.form, "smsAuth", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.form, "smsAuth", $$c)}}}}),_vm._v(" "),_c('div',{staticClass:"checkbox__icon"}),_vm._v(" "),_c('div',{staticClass:"checkbox__label"},[_vm._v("SMS Authentication")])]),_vm._v(" "),_c('label',{staticClass:"checkbox"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.googleAuth),expression:"form.googleAuth"}],attrs:{"type":"checkbox","name":"google","reuired":""},domProps:{"checked":Array.isArray(_vm.form.googleAuth)?_vm._i(_vm.form.googleAuth,null)>-1:(_vm.form.googleAuth)},on:{"change":function($event){var $$a=_vm.form.googleAuth,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.form, "googleAuth", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.form, "googleAuth", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.form, "googleAuth", $$c)}}}}),_vm._v(" "),_c('div',{staticClass:"checkbox__icon"}),_vm._v(" "),_c('div',{staticClass:"checkbox__label"},[_vm._v("Google Authentication")])])]),_vm._v(" "),_c('button',{staticClass:"btn btn-big",class:{'btn-green': _vm.changed},attrs:{"type":"submit","disabled":!_vm.changed}},[_vm._v("Change")])]),_vm._v(" "),_c('div',{staticClass:"input__label"},[_vm._v("Device Managment")]),_vm._v(" "),_c('div',{staticClass:"table col-4"},[_vm._m(0),_vm._v(" "),_c('div',{ref:"device",staticClass:"table-body filled"},[(!_vm.deviceCollection.length)?_c('div',{staticClass:"table-empty"},[_vm._v("Empty")]):_vm._e(),_vm._v(" "),_vm._l((_vm.deviceCollection),function(item){return (_vm.deviceCollection.length)?_c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.device))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.location))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.activity))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.ip))])]):_vm._e()})],2)]),_vm._v(" "),_c('div',{staticClass:"input__label"},[_vm._v("Location Managment")]),_vm._v(" "),_c('div',{staticClass:"table col-3"},[_vm._m(1),_vm._v(" "),_c('div',{ref:"location",staticClass:"table-body filled"},[(!_vm.locationCollection.length)?_c('div',{staticClass:"table-empty"},[_vm._v("Empty")]):_vm._e(),_vm._v(" "),_vm._l((_vm.locationCollection),function(item){return (_vm.locationCollection.length)?_c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.location))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.activity))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.ip))])]):_vm._e()})],2)])])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dashboard-block security"},[_c('div',{staticClass:"cabinet-block__title"},[_vm._v("Security")]),_vm._v(" "),_c('div',{staticClass:"input__label"},[_vm._v("Authentication")]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"change":function($event){_vm.validate()}}},[_c('div',[_c('label',{staticClass:"checkbox"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.smsAuth),expression:"form.smsAuth"}],attrs:{"type":"checkbox","name":"sms","reuired":""},domProps:{"checked":Array.isArray(_vm.form.smsAuth)?_vm._i(_vm.form.smsAuth,null)>-1:(_vm.form.smsAuth)},on:{"change":function($event){var $$a=_vm.form.smsAuth,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.form, "smsAuth", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.form, "smsAuth", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.form, "smsAuth", $$c)}}}}),_vm._v(" "),_c('div',{staticClass:"checkbox__icon"}),_vm._v(" "),_c('div',{staticClass:"checkbox__label"},[_vm._v("SMS Authentication")])]),_vm._v(" "),_c('label',{staticClass:"checkbox"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.googleAuth),expression:"form.googleAuth"}],attrs:{"type":"checkbox","name":"google","reuired":""},domProps:{"checked":Array.isArray(_vm.form.googleAuth)?_vm._i(_vm.form.googleAuth,null)>-1:(_vm.form.googleAuth)},on:{"change":function($event){var $$a=_vm.form.googleAuth,$$el=$event.target,$$c=$$el.checked?(true):(false);if(Array.isArray($$a)){var $$v=null,$$i=_vm._i($$a,$$v);if($$el.checked){$$i<0&&(_vm.$set(_vm.form, "googleAuth", $$a.concat([$$v])))}else{$$i>-1&&(_vm.$set(_vm.form, "googleAuth", $$a.slice(0,$$i).concat($$a.slice($$i+1))))}}else{_vm.$set(_vm.form, "googleAuth", $$c)}}}}),_vm._v(" "),_c('div',{staticClass:"checkbox__icon"}),_vm._v(" "),_c('div',{staticClass:"checkbox__label"},[_vm._v("Google Authentication")])])]),_vm._v(" "),_c('button',{staticClass:"btn btn-big",class:{'btn-green': _vm.changed},attrs:{"type":"submit","disabled":!_vm.changed}},[_vm._v("Change")])]),_vm._v(" "),_c('div',{staticClass:"input__label"},[_vm._v("Device Managment")]),_vm._v(" "),_c('div',{staticClass:"table col-4"},[_vm._m(0),_vm._v(" "),_c('div',{ref:"device",staticClass:"table-body filled"},[(!_vm.deviceCollection.length)?_c('div',{staticClass:"table-empty"},[_vm._v("Empty")]):_vm._e(),_vm._v(" "),_vm._l((_vm.deviceCollection),function(item,key){return _c('div',{key:key,staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.device))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.location))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.activity))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.ip))])])})],2)]),_vm._v(" "),_c('div',{staticClass:"input__label"},[_vm._v("Location Managment")]),_vm._v(" "),_c('div',{staticClass:"table col-3"},[_vm._m(1),_vm._v(" "),_c('div',{ref:"location",staticClass:"table-body filled"},[(!_vm.locationCollection.length)?_c('div',{staticClass:"table-empty"},[_vm._v("Empty")]):_vm._e(),_vm._v(" "),_vm._l((_vm.locationCollection),function(item,key){return _c('div',{key:key,staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.location))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.activity))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.ip))])])})],2)])])}
 __vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-head filled"},[_c('div',{staticClass:"table-head__col"},[_vm._v("Device")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Location")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Recent activity")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("IP Address")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-head filled"},[_c('div',{staticClass:"table-head__col"},[_vm._v("Location")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Recent activity")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("IP Address")])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -9352,7 +9399,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-7296e396", __vue__options__)
   }
 })()}
-},{"babel-runtime/core-js/json/stringify":1,"vue":7,"vue-hot-reload-api":6}],18:[function(require,module,exports){
+},{"babel-runtime/core-js/json/stringify":1,"vue":7,"vue-hot-reload-api":6}],19:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9423,7 +9470,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-0b3658fe", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":23,"vue":7,"vue-hot-reload-api":6}],19:[function(require,module,exports){
+},{"../mixins/modal.mixin":24,"vue":7,"vue-hot-reload-api":6}],20:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9538,7 +9585,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-7bff2761", __vue__options__)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":6}],20:[function(require,module,exports){
+},{"vue":7,"vue-hot-reload-api":6}],21:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9567,7 +9614,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-6dd83f9d", __vue__options__)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":6}],21:[function(require,module,exports){
+},{"vue":7,"vue-hot-reload-api":6}],22:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9578,6 +9625,10 @@ Object.defineProperty(exports, "__esModule", {
 var _sharedService = require("../shared.service.js");
 
 var _sharedService2 = _interopRequireDefault(_sharedService);
+
+var _dropdown = require("./dropdown.vue");
+
+var _dropdown2 = _interopRequireDefault(_dropdown);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9878,6 +9929,9 @@ var transactionsCollection = [{
 }];
 
 exports.default = {
+  components: {
+    "app-dropdown": _dropdown2.default
+  },
   data: function data() {
     return {
       tabs: ["Favorite wallets", "All wallets", "Transactions"],
@@ -9947,8 +10001,8 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dashboard-block wallets"},[_c('div',{staticClass:"cabinet-tabs"},_vm._l((_vm.tabs),function(tab,index){return _c('div',{staticClass:"cabinet-tabs__item",class:{active: index == _vm.activeTab},on:{"click":function($event){_vm.changeTab(index)}}},[_vm._v(_vm._s(tab))])}),0),_vm._v(" "),_c('div',{staticClass:"cabinet-tabs-content",class:{active: _vm.activeTab === 0}},[_c('div',{ref:"favorite",staticClass:"scroll-y"},[_c('div',{staticClass:"cabinet-wallets"},[(!_vm.favorite.length)?_c('div',{staticClass:"table-empty"},[_vm._v("Empty")]):_vm._e(),_vm._v(" "),_vm._l((_vm.favorite),function(item){return _c('div',{staticClass:"cabinet-wallets__item"},[_c('div',{staticClass:"cabinet-wallets__item_info"},[_c('div',{staticClass:"cabinet-wallets__item_name",on:{"click":function($event){_vm.showInfo(item)}}},[_c('img',{staticClass:"cabinet-wallets__item_logo",attrs:{"src":item.icon,"alt":""}}),_vm._v("\n              "+_vm._s(item.name)+"\n              "),_c('br'),_vm._v("\n              "+_vm._s(item.abbr)+"\n            ")]),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_money"},[_c('div',[_c('div',{staticClass:"cabinet-wallets__item_value"},[_vm._v(_vm._s(item.value))]),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_usd"},[_vm._v(_vm._s(item.usd))])]),_vm._v(" "),_c('div',{staticClass:"icon-star",class:{active: item.favorite},on:{"click":function($event){_vm.addToFavorite(item)}}})])]),_vm._v(" "),(!item.inactive)?_c('div',{staticClass:"cabinet-wallets__item_buttons"},[_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.send()}}},[_vm._v("Send")]),_vm._v(" "),_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.receive()}}},[_vm._v("Receive")])]):_vm._e(),_vm._v(" "),(item.inactive)?_c('div',{staticClass:"cabinet-wallets__item_buttons"},[_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.add()}}},[_vm._v("Add")])]):_vm._e()])})],2)])]),_vm._v(" "),_c('div',{staticClass:"cabinet-tabs-content",class:{active: _vm.activeTab === 1}},[_c('div',{ref:"all",staticClass:"scroll-y"},[_c('div',{staticClass:"cabinet-wallets"},_vm._l((_vm.all),function(item){return _c('div',{staticClass:"cabinet-wallets__item"},[_c('div',{staticClass:"cabinet-wallets__item_info"},[_c('div',{staticClass:"cabinet-wallets__item_name",on:{"click":function($event){_vm.showInfo(item)}}},[_c('img',{staticClass:"cabinet-wallets__item_logo",attrs:{"src":item.icon,"alt":""}}),_vm._v("\n              "+_vm._s(item.name)+"\n              "),_c('br'),_vm._v("\n              "+_vm._s(item.abbr)+"\n            ")]),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_money"},[_c('div',[_c('div',{staticClass:"cabinet-wallets__item_value"},[_vm._v(_vm._s(item.value))]),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_usd"},[_vm._v(_vm._s(item.usd))])]),_vm._v(" "),_c('div',{staticClass:"icon-star",class:{active: item.favorite},on:{"click":function($event){_vm.addToFavorite(item)}}})])]),_vm._v(" "),(!item.inactive)?_c('div',{staticClass:"cabinet-wallets__item_buttons"},[_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.send()}}},[_vm._v("Send")]),_vm._v(" "),_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.receive()}}},[_vm._v("Receive")])]):_vm._e(),_vm._v(" "),(item.inactive)?_c('div',{staticClass:"cabinet-wallets__item_buttons"},[_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.add()}}},[_vm._v("Add")])]):_vm._e()])}),0)])]),_vm._v(" "),_c('div',{staticClass:"cabinet-tabs-content",class:{active: _vm.activeTab === 2},staticStyle:{"margin-top":"4px"}},[_c('div',{staticClass:"table col-6"},[_vm._m(0),_vm._v(" "),_vm._m(1),_vm._v(" "),_c('div',{ref:"transactions",staticClass:"table-body filled"},[(!_vm.transactions.length)?_c('div',{staticClass:"table-empty"},[_vm._v("Empty")]):_vm._e(),_vm._v(" "),_vm._l((_vm.transactions),function(item){return (_vm.transactions.length)?_c('div',{staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_c('img',{attrs:{"src":item.icon}}),_vm._v("\n            "+_vm._s(item.name)+"\n          ")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.date))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.status))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.amount))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.fee))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.totalBalance))])]):_vm._e()})],2)])])])}
-__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-filter"},[_c('div',{staticClass:"table-filter__text"},[_vm._v("View on")]),_vm._v(" "),_c('div',{staticClass:"dropdown dropdown-grey dropdown-big"},[_c('div',{staticClass:"dropdown-value"},[_vm._v("Coins")])])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-head filled"},[_c('div',{staticClass:"table-head__col"},[_vm._v("Tokens")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Date")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Status")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Amount")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Fee")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Total Balance")])])}]
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"dashboard-block wallets"},[_c('div',{staticClass:"cabinet-tabs"},_vm._l((_vm.tabs),function(tab,index){return _c('div',{key:index,staticClass:"cabinet-tabs__item",class:{active: index == _vm.activeTab},on:{"click":function($event){_vm.changeTab(index)}}},[_vm._v(_vm._s(tab))])}),0),_vm._v(" "),_c('div',{staticClass:"cabinet-tabs-content",class:{active: _vm.activeTab === 0}},[_c('div',{ref:"favorite",staticClass:"scroll-y"},[_c('div',{staticClass:"cabinet-wallets"},[(!_vm.favorite.length)?_c('div',{staticClass:"table-empty"},[_vm._v("Empty")]):_vm._e(),_vm._v(" "),_vm._l((_vm.favorite),function(item,key){return _c('div',{key:key,staticClass:"cabinet-wallets__item"},[_c('div',{staticClass:"cabinet-wallets__item_info"},[_c('div',{staticClass:"cabinet-wallets__item_name",on:{"click":function($event){_vm.showInfo(item)}}},[_c('img',{staticClass:"cabinet-wallets__item_logo",attrs:{"src":item.icon,"alt":""}}),_vm._v("\n              "+_vm._s(item.name)+"\n              "),_c('br'),_vm._v("\n              "+_vm._s(item.abbr)+"\n            ")]),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_money"},[_c('div',[_c('div',{staticClass:"cabinet-wallets__item_value"},[_vm._v(_vm._s(item.value))]),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_usd"},[_vm._v(_vm._s(item.usd))])]),_vm._v(" "),_c('div',{staticClass:"icon-star",class:{active: item.favorite},on:{"click":function($event){_vm.addToFavorite(item)}}})])]),_vm._v(" "),(!item.inactive)?_c('div',{staticClass:"cabinet-wallets__item_buttons"},[_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.send()}}},[_vm._v("Send")]),_vm._v(" "),_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.receive()}}},[_vm._v("Receive")])]):_vm._e(),_vm._v(" "),(item.inactive)?_c('div',{staticClass:"cabinet-wallets__item_buttons"},[_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.add()}}},[_vm._v("Add")])]):_vm._e()])})],2)])]),_vm._v(" "),_c('div',{staticClass:"cabinet-tabs-content",class:{active: _vm.activeTab === 1}},[_c('div',{ref:"all",staticClass:"scroll-y"},[_c('div',{staticClass:"cabinet-wallets"},_vm._l((_vm.all),function(item,key){return _c('div',{key:key,staticClass:"cabinet-wallets__item"},[_c('div',{staticClass:"cabinet-wallets__item_info"},[_c('div',{staticClass:"cabinet-wallets__item_name",on:{"click":function($event){_vm.showInfo(item)}}},[_c('img',{staticClass:"cabinet-wallets__item_logo",attrs:{"src":item.icon,"alt":""}}),_vm._v("\n              "+_vm._s(item.name)+"\n              "),_c('br'),_vm._v("\n              "+_vm._s(item.abbr)+"\n            ")]),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_money"},[_c('div',[_c('div',{staticClass:"cabinet-wallets__item_value"},[_vm._v(_vm._s(item.value))]),_vm._v(" "),_c('div',{staticClass:"cabinet-wallets__item_usd"},[_vm._v(_vm._s(item.usd))])]),_vm._v(" "),_c('div',{staticClass:"icon-star",class:{active: item.favorite},on:{"click":function($event){_vm.addToFavorite(item)}}})])]),_vm._v(" "),(!item.inactive)?_c('div',{staticClass:"cabinet-wallets__item_buttons"},[_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.send()}}},[_vm._v("Send")]),_vm._v(" "),_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.receive()}}},[_vm._v("Receive")])]):_vm._e(),_vm._v(" "),(item.inactive)?_c('div',{staticClass:"cabinet-wallets__item_buttons"},[_c('button',{staticClass:"btn",attrs:{"type":"button"},on:{"click":function($event){_vm.add()}}},[_vm._v("Add")])]):_vm._e()])}),0)])]),_vm._v(" "),_c('div',{staticClass:"cabinet-tabs-content",class:{active: _vm.activeTab === 2},staticStyle:{"margin-top":"4px"}},[_c('div',{staticClass:"table col-6"},[_c('div',{staticClass:"table-filter"},[_c('div',{staticClass:"table-filter__text"},[_vm._v("View on")]),_vm._v(" "),_c('app-dropdown',{attrs:{"items":['Coins', 'USD']}})],1),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{ref:"transactions",staticClass:"table-body filled"},[(!_vm.transactions.length)?_c('div',{staticClass:"table-empty"},[_vm._v("Empty")]):_vm._e(),_vm._v(" "),_vm._l((_vm.transactions),function(item,key){return _c('div',{key:key,staticClass:"table-body__row"},[_c('div',{staticClass:"table-body__col"},[_c('img',{attrs:{"src":item.icon}}),_vm._v("\n            "+_vm._s(item.name)+"\n          ")]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.date))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.status))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.amount))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.fee))]),_vm._v(" "),_c('div',{staticClass:"table-body__col"},[_vm._v(_vm._s(item.totalBalance))])])})],2)])])])}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"table-head filled"},[_c('div',{staticClass:"table-head__col"},[_vm._v("Tokens")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Date")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Status")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Amount")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Fee")]),_vm._v(" "),_c('div',{staticClass:"table-head__col"},[_vm._v("Total Balance")])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -9956,10 +10010,10 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-0d26f7b4", __vue__options__)
   } else {
-    hotAPI.reload("data-v-0d26f7b4", __vue__options__)
+    hotAPI.rerender("data-v-0d26f7b4", __vue__options__)
   }
 })()}
-},{"../shared.service.js":25,"vue":7,"vue-hot-reload-api":6}],22:[function(require,module,exports){
+},{"../shared.service.js":26,"./dropdown.vue":13,"vue":7,"vue-hot-reload-api":6}],23:[function(require,module,exports){
 "use strict";
 
 var _vue = require("vue");
@@ -10017,7 +10071,7 @@ new _vue2.default({
   }
 }).$mount("#app");
 
-},{"./App.vue":9,"vue":7}],23:[function(require,module,exports){
+},{"./App.vue":9,"vue":7}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10042,7 +10096,7 @@ var modalMixin = exports.modalMixin = {
     }
 };
 
-},{"../shared.service.js":25}],24:[function(require,module,exports){
+},{"../shared.service.js":26}],25:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10181,7 +10235,7 @@ function SHA256(s) {
     return binb2hex(core_sha256(str2binb(s), s.length * chrsz));
 }
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10227,4 +10281,4 @@ var ModalService = function () {
 
 exports.default = new ModalService();
 
-},{}]},{},[22]);
+},{}]},{},[23]);

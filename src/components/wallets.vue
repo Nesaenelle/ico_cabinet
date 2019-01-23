@@ -6,6 +6,7 @@
         @click="changeTab(index)"
         :class="{active: index == activeTab}"
         v-for="(tab, index) in tabs"
+        :key="index"
       >{{tab}}</div>
     </div>
     <div class="cabinet-tabs-content" :class="{active: activeTab === 0}">
@@ -13,7 +14,7 @@
         <div class="cabinet-wallets">
           <div v-if="!favorite.length" class="table-empty">Empty</div>
 
-          <div class="cabinet-wallets__item" v-for="item in favorite">
+          <div class="cabinet-wallets__item" v-for="(item, key) in favorite" :key="key">
             <div class="cabinet-wallets__item_info">
               <div class="cabinet-wallets__item_name" @click="showInfo(item)">
                 <img class="cabinet-wallets__item_logo" :src="item.icon" alt>
@@ -49,7 +50,7 @@
     <div class="cabinet-tabs-content" :class="{active: activeTab === 1}">
       <div class="scroll-y" ref="all">
         <div class="cabinet-wallets">
-          <div class="cabinet-wallets__item" v-for="item in all">
+          <div class="cabinet-wallets__item" v-for="(item, key) in all" :key="key">
             <div class="cabinet-wallets__item_info">
               <div class="cabinet-wallets__item_name" @click="showInfo(item)">
                 <img class="cabinet-wallets__item_logo" :src="item.icon" alt>
@@ -86,9 +87,7 @@
       <div class="table col-6">
         <div class="table-filter">
           <div class="table-filter__text">View on</div>
-          <div class="dropdown dropdown-grey dropdown-big">
-            <div class="dropdown-value">Coins</div>
-          </div>
+          <app-dropdown :items="['Coins', 'USD']"></app-dropdown>
         </div>
         <div class="table-head filled">
           <div class="table-head__col">Tokens</div>
@@ -100,7 +99,7 @@
         </div>
         <div class="table-body filled" ref="transactions">
           <div class="table-empty" v-if="!transactions.length">Empty</div>
-          <div class="table-body__row" v-if="transactions.length" v-for="item in transactions">
+          <div class="table-body__row" v-for="(item, key) in transactions" :key="key">
             <div class="table-body__col">
               <img :src="item.icon">
               {{item.name}}
@@ -454,8 +453,12 @@ var transactionsCollection = [
 ];
 
 import ModalService from "../shared.service.js";
+import Dropdown from "./dropdown.vue";
 
 export default {
+  components: {
+    "app-dropdown": Dropdown
+  },
   data: function() {
     return {
       tabs: ["Favorite wallets", "All wallets", "Transactions"],

@@ -15,7 +15,6 @@
           v-model="form.email"
           name="email"
           placeholder="your@email.com"
-          autocomplete="off"
           @input.once="dirty.email = true"
         >
       </div>
@@ -31,17 +30,17 @@
         <input
           type="password"
           maxlength="30"
+          name="password"
           required
           v-model="form.password"
           placeholder="***********"
-          autocomplete="off"
           @input.once="dirty.password = true"
         >
       </div>
 
       <div
         class="input"
-        :class="{hidden: !form.password, invalid : dirty.passwordConfirm && errors.passwordConfirm, valid: dirty.passwordConfirm &&  !errors.passwordConfirm }"
+        :class="{hidden: !showConfirm, invalid : dirty.passwordConfirm && errors.passwordConfirm, valid: dirty.passwordConfirm &&  !errors.passwordConfirm }"
       >
         <div class="input__label">Password Again</div>
 
@@ -51,15 +50,16 @@
           type="password"
           maxlength="30"
           required
+          name="passwordConfirm"
           v-model="form.passwordConfirm"
           placeholder="***********"
-          autocomplete="off"
           @input.once="dirty.passwordConfirm = true"
         >
       </div>
 
       <div class="account-buttons">
-        <button class="btn btn-big" type="submit" :class="{'btn-green': valid}">Change</button>
+        <button class="btn btn-big" type="button" @click="showConfirm = true" v-if="!showConfirm">Change</button>
+        <button class="btn btn-big" type="submit" :class="{'btn-green': valid}" v-if="showConfirm">Change</button>
       </div>
     </form>
   </div>
@@ -70,6 +70,7 @@ export default {
   name: "app-account",
   data() {
     return {
+      showConfirm: false,
       valid: false,
       form: {
         email: "",

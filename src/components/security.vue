@@ -37,8 +37,7 @@
         <div class="table-empty" v-if="!deviceCollection.length">Empty</div>
         <div
           class="table-body__row"
-          v-if="deviceCollection.length"
-          v-for="item in deviceCollection"
+          v-for="(item, key) in deviceCollection" :key="key"
         >
           <div class="table-body__col">{{item.device}}</div>
           <div class="table-body__col">{{item.location}}</div>
@@ -59,8 +58,7 @@
         <div class="table-empty" v-if="!locationCollection.length">Empty</div>
         <div
           class="table-body__row"
-          v-if="locationCollection.length"
-          v-for="item in locationCollection"
+          v-for="(item, key) in locationCollection" :key="key"
         >
           <div class="table-body__col">{{item.location}}</div>
           <div class="table-body__col">{{item.activity}}</div>
