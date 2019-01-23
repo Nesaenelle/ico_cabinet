@@ -277,6 +277,8 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
 };
 }).call(this,require("timers").setImmediate,require("timers").clearImmediate)
 },{"process/browser.js":4,"timers":5}],6:[function(require,module,exports){
+(function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.VMoney=t():e.VMoney=t()})(this,function(){return function(e){function t(r){if(n[r])return n[r].exports;var i=n[r]={i:r,l:!1,exports:{}};return e[r].call(i.exports,i,i.exports,t),i.l=!0,i.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p=".",t(t.s=9)}([function(e,t,n){"use strict";t.a={prefix:"",suffix:"",thousands:",",decimal:".",precision:2}},function(e,t,n){"use strict";var r=n(2),i=n(5),u=n(0);t.a=function(e,t){if(t.value){var o=n.i(i.a)(u.a,t.value);if("INPUT"!==e.tagName.toLocaleUpperCase()){var a=e.getElementsByTagName("input");1!==a.length||(e=a[0])}e.oninput=function(){var t=e.value.length-e.selectionEnd;e.value=n.i(r.a)(e.value,o),t=Math.max(t,o.suffix.length),t=e.value.length-t,t=Math.max(t,o.prefix.length+1),n.i(r.b)(e,t),e.dispatchEvent(n.i(r.c)("change"))},e.onfocus=function(){n.i(r.b)(e,e.value.length-o.suffix.length)},e.oninput(),e.dispatchEvent(n.i(r.c)("input"))}}},function(e,t,n){"use strict";function r(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:m.a;"number"==typeof e&&(e=e.toFixed(o(t.precision)));var n=e.indexOf("-")>=0?"-":"",r=u(e),i=c(r,t.precision),a=d(i).split("."),p=a[0],l=a[1];return p=f(p,t.thousands),t.prefix+n+s(p,l,t.decimal)+t.suffix}function i(e,t){var n=e.indexOf("-")>=0?-1:1,r=u(e),i=c(r,t);return parseFloat(i)*n}function u(e){return d(e).replace(/\D+/g,"")||"0"}function o(e){return a(0,e,20)}function a(e,t,n){return Math.max(e,Math.min(t,n))}function c(e,t){var n=Math.pow(10,t);return(parseFloat(e)/n).toFixed(o(t))}function f(e,t){return e.replace(/(\d)(?=(?:\d{3})+\b)/gm,"$1"+t)}function s(e,t,n){return t?e+n+t:e}function d(e){return e?e.toString():""}function p(e,t){var n=function(){e.setSelectionRange(t,t)};e===document.activeElement&&(n(),setTimeout(n,1))}function l(e){var t=document.createEvent("Event");return t.initEvent(e,!0,!0),t}var m=n(0);n.d(t,"a",function(){return r}),n.d(t,"d",function(){return i}),n.d(t,"b",function(){return p}),n.d(t,"c",function(){return l})},function(e,t,n){"use strict";function r(e,t){t&&Object.keys(t).map(function(e){a.a[e]=t[e]}),e.directive("money",o.a),e.component("money",u.a)}Object.defineProperty(t,"__esModule",{value:!0});var i=n(6),u=n.n(i),o=n(1),a=n(0);n.d(t,"Money",function(){return u.a}),n.d(t,"VMoney",function(){return o.a}),n.d(t,"options",function(){return a.a}),n.d(t,"VERSION",function(){return c});var c="0.8.1";t.default=r,"undefined"!=typeof window&&window.Vue&&window.Vue.use(r)},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(1),i=n(0),u=n(2);t.default={name:"Money",props:{value:{required:!0,type:[Number,String],default:0},masked:{type:Boolean,default:!1},precision:{type:Number,default:function(){return i.a.precision}},decimal:{type:String,default:function(){return i.a.decimal}},thousands:{type:String,default:function(){return i.a.thousands}},prefix:{type:String,default:function(){return i.a.prefix}},suffix:{type:String,default:function(){return i.a.suffix}}},directives:{money:r.a},data:function(){return{formattedValue:""}},watch:{value:{immediate:!0,handler:function(e,t){var r=n.i(u.a)(e,this.$props);r!==this.formattedValue&&(this.formattedValue=r)}}},methods:{change:function(e){this.$emit("input",this.masked?e.target.value:n.i(u.d)(e.target.value,this.precision))}}}},function(e,t,n){"use strict";t.a=function(e,t){return e=e||{},t=t||{},Object.keys(e).concat(Object.keys(t)).reduce(function(n,r){return n[r]=void 0===t[r]?e[r]:t[r],n},{})}},function(e,t,n){var r=n(7)(n(4),n(8),null,null);e.exports=r.exports},function(e,t){e.exports=function(e,t,n,r){var i,u=e=e||{},o=typeof e.default;"object"!==o&&"function"!==o||(i=e,u=e.default);var a="function"==typeof u?u.options:u;if(t&&(a.render=t.render,a.staticRenderFns=t.staticRenderFns),n&&(a._scopeId=n),r){var c=a.computed||(a.computed={});Object.keys(r).forEach(function(e){var t=r[e];c[e]=function(){return t}})}return{esModule:i,exports:u,options:a}}},function(e,t){e.exports={render:function(){var e=this,t=e.$createElement;return(e._self._c||t)("input",{directives:[{name:"money",rawName:"v-money",value:{precision:e.precision,decimal:e.decimal,thousands:e.thousands,prefix:e.prefix,suffix:e.suffix},expression:"{precision, decimal, thousands, prefix, suffix}"}],staticClass:"v-money",attrs:{type:"tel"},domProps:{value:e.formattedValue},on:{change:e.change}})},staticRenderFns:[]}},function(e,t,n){e.exports=n(3)}])});
+},{}],7:[function(require,module,exports){
 var Vue // late bind
 var version
 var map = Object.create(null)
@@ -521,7 +523,7 @@ exports.reload = tryWrap(function (id, options) {
   })
 })
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 (function (process,global,setImmediate){
 /*!
  * Vue.js v2.5.22
@@ -8634,7 +8636,7 @@ if (inBrowser) {
 module.exports = Vue;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("timers").setImmediate)
-},{"_process":4,"timers":5}],8:[function(require,module,exports){
+},{"_process":4,"timers":5}],9:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 function noop () {}
@@ -8659,7 +8661,7 @@ exports.insert = function (css) {
   }
 }
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -8750,7 +8752,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-327e8ed1", __vue__options__)
   }
 })()}
-},{"./components/about-modal.vue":10,"./components/account.vue":11,"./components/header.vue":14,"./components/login-modal.vue":15,"./components/receive-modal.vue":16,"./components/registration-modal.vue":17,"./components/security.vue":18,"./components/send-modal.vue":19,"./components/statistic-info.vue":20,"./components/tooltip.vue":21,"./components/wallets.vue":22,"vue":7,"vue-hot-reload-api":6}],10:[function(require,module,exports){
+},{"./components/about-modal.vue":11,"./components/account.vue":12,"./components/header.vue":15,"./components/login-modal.vue":16,"./components/receive-modal.vue":17,"./components/registration-modal.vue":18,"./components/security.vue":19,"./components/send-modal.vue":20,"./components/statistic-info.vue":21,"./components/tooltip.vue":22,"./components/wallets.vue":23,"vue":8,"vue-hot-reload-api":7}],11:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -8798,7 +8800,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-276ea3f2", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":24,"vue":7,"vue-hot-reload-api":6}],11:[function(require,module,exports){
+},{"../mixins/modal.mixin":25,"vue":8,"vue-hot-reload-api":7}],12:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -8884,7 +8886,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-6f82d4c7", __vue__options__)
   }
 })()}
-},{"babel-runtime/core-js/json/stringify":1,"vue":7,"vue-hot-reload-api":6}],12:[function(require,module,exports){
+},{"babel-runtime/core-js/json/stringify":1,"vue":8,"vue-hot-reload-api":7}],13:[function(require,module,exports){
 var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".dashboard-status__time[data-v-0f91f2b0] {\r\n    white-space: nowrap;\r\n}")
 ;(function(){
 "use strict";
@@ -8936,7 +8938,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-0f91f2b0", __vue__options__)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":6,"vueify/lib/insert-css":8}],13:[function(require,module,exports){
+},{"vue":8,"vue-hot-reload-api":7,"vueify/lib/insert-css":9}],14:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -8979,10 +8981,10 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-9f024032", __vue__options__)
   } else {
-    hotAPI.reload("data-v-9f024032", __vue__options__)
+    hotAPI.rerender("data-v-9f024032", __vue__options__)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":6}],14:[function(require,module,exports){
+},{"vue":8,"vue-hot-reload-api":7}],15:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9030,7 +9032,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-463037e3", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":24,"./clock.vue":12,"vue":7,"vue-hot-reload-api":6}],15:[function(require,module,exports){
+},{"../mixins/modal.mixin":25,"./clock.vue":13,"vue":8,"vue-hot-reload-api":7}],16:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9131,7 +9133,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-199d523a", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":24,"../sha":25,"vue":7,"vue-hot-reload-api":6}],16:[function(require,module,exports){
+},{"../mixins/modal.mixin":25,"../sha":26,"vue":8,"vue-hot-reload-api":7}],17:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9141,43 +9143,78 @@ Object.defineProperty(exports, "__esModule", {
 
 var _modal = require("../mixins/modal.mixin");
 
+var _vMoney = require("v-money");
+
+var _utils = require("../utils");
+
 exports.default = {
   mixins: [_modal.modalMixin],
+  directives: { money: _vMoney.VMoney },
   data: function data() {
     return {
+      moneyBTC: _utils.moneyBTC,
+      moneyUSD: _utils.moneyUSD,
       activeTab: 1,
       valid: false,
       form: {
         address: "",
-        payment: "paypal"
+        payment: "paypal",
+        amount: "",
+        invoiceValue: ""
       },
       errors: {
         address: false,
-        payment: false
+        payment: false,
+        amount: false,
+        invoiceValue: false
       },
       dirty: {
         address: false,
-        payment: false
+        payment: false,
+        amount: false,
+        invoiceValue: false
       }
     };
   },
+  mounted: function mounted() {
+    this.validate();
+  },
 
-  mounted: function mounted() {},
+  computed: {
+    btc: function btc() {
+      return ((0, _utils.toMoney)(this.form.amount) * 2).toFixed(2);
+    }
+  },
   methods: {
     changeTab: function changeTab(i) {
       this.activeTab = i;
     },
     submit: function submit() {
+      var _this = this;
+
       if (this.valid) {
         this.closeModal();
+      } else {
+        this.dirty = {
+          address: true,
+          payment: true,
+          amount: true
+        };
+
+        this.validate();
+
+        setTimeout(function () {
+          _this.$el.querySelector(".invalid input").focus();
+        }, 0);
       }
     },
     validate: function validate() {
-      this.errors.address = !this.form.address;
+      this.errors.address = !(0, _utils.recipientValidate)(this.form.address);
       this.errors.payment = !this.form.payment;
+      this.errors.amount = !(0, _utils.amountValidate)(this.form.amount) || (0, _utils.toMoney)(this.form.amount) < 30;
+      this.errors.invoiceValue = !this.form.invoiceValue;
 
-
-      if (this.errors.address || this.errors.payment) {
+      if (this.errors.address || this.errors.payment || this.errors.amount) {
         this.valid = false;
       } else {
         this.valid = true;
@@ -9189,7 +9226,7 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"receive"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__tabs"},[_c('div',{staticClass:"cabinet-modal__tabs_item",class:{active: _vm.activeTab === 1},on:{"click":function($event){_vm.changeTab(1)}}},[_vm._v("Cryptocurrency")]),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__tabs_item",class:{active: _vm.activeTab === 2},on:{"click":function($event){_vm.changeTab(2)}}},[_vm._v("Card")])]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"input",class:{invalid : _vm.dirty.address && _vm.errors.address, valid: _vm.dirty.address && !_vm.errors.address }},[_c('div',{staticClass:"input__label"},[_vm._v("Your wallet address\n          "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.address),expression:"form.address",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"asset","placeholder":"Paste address","autocomplete":"off"},domProps:{"value":(_vm.form.address)},on:{"~input":function($event){_vm.dirty.address = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "address", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}})]),_vm._v(" "),_vm._m(1),_vm._v(" "),(_vm.activeTab === 1)?_c('div',[_c('div',{staticClass:"input__section"},[_vm._v("Invoice")]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Amount Invoice\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","required":"required","name":"recipient","placeholder":"Value","autocomplete":"off"}})]),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","margin-top":"14px","margin-bottom":"20px","align-items":"flex-end","justify-content":"space-between"}},[_c('div',{staticClass:"input",staticStyle:{"width":"80%"}},[_c('div',{staticClass:"input__label"},[_vm._v("Link to an Invoice\n              "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","value":"http://exchange2.net/dfgyhhnm,l;lkjhgc","required":"required","name":"recipient","placeholder":"","autocomplete":"off"}})]),_vm._v(" "),_c('button',{staticClass:"btn btn-green",staticStyle:{"margin":"0 0 3px 0","width":"72px","height":"30px"},attrs:{"type":"button"}},[_vm._v("Copy")])])]):_vm._e(),_vm._v(" "),(_vm.activeTab === 2)?_c('div',[_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Amount your pay\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","name":"recipient","placeholder":"0.00 USD","autocomplete":"off"}})]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Approximately yoy will get\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","name":"recipient","placeholder":"0.00 BTC","autocomplete":"off"}})]),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('div',{staticClass:"radio"},[_c('label',[_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.payment),expression:"form.payment",modifiers:{"number":true}}],attrs:{"type":"radio","name":"payment","value":"paypal"},domProps:{"checked":_vm._q(_vm.form.payment,_vm._n("paypal"))},on:{"change":function($event){_vm.$set(_vm.form, "payment", _vm._n("paypal"))}}}),_vm._v(" "),_c('div',{staticClass:"radio__icon"}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/Paypal.svg","alt":""}})]),_vm._v(" "),_c('label',[_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.payment),expression:"form.payment",modifiers:{"number":true}}],attrs:{"type":"radio","name":"payment","value":"visa"},domProps:{"checked":_vm._q(_vm.form.payment,_vm._n("visa"))},on:{"change":function($event){_vm.$set(_vm.form, "payment", _vm._n("visa"))}}}),_vm._v(" "),_c('div',{staticClass:"radio__icon"}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/Visa.svg","alt":""}}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/mastercard.svg","alt":""}})])]),_vm._v(" "),_c('button',{staticClass:"btn",class:{'btn-green': _vm.valid},attrs:{"type":"submit"}},[_vm._v("Continue")])]):_vm._e()])])])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"receive"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__tabs"},[_c('div',{staticClass:"cabinet-modal__tabs_item",class:{active: _vm.activeTab === 1},on:{"click":function($event){_vm.changeTab(1)}}},[_vm._v("Cryptocurrency")]),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__tabs_item",class:{active: _vm.activeTab === 2},on:{"click":function($event){_vm.changeTab(2)}}},[_vm._v("Card")])]),_vm._v(" "),_c('form',{attrs:{"novalidate":""},on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"input",class:{invalid : _vm.dirty.address && _vm.errors.address, valid: _vm.dirty.address && !_vm.errors.address }},[_c('div',{staticClass:"input__label"},[_vm._v("Your wallet address\n          "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.address),expression:"form.address"}],attrs:{"type":"text","required":"required","name":"asset","placeholder":"Paste address"},domProps:{"value":(_vm.form.address)},on:{"~focus":function($event){_vm.dirty.address = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "address", $event.target.value)}}})]),_vm._v(" "),_vm._m(1),_vm._v(" "),(_vm.activeTab === 1)?_c('div',[_c('div',{staticClass:"input__section"},[_vm._v("Invoice")]),_vm._v(" "),_c('div',{staticClass:"input",class:{invalid : _vm.dirty.invoiceValue && _vm.errors.invoiceValue, valid: _vm.dirty.invoiceValue && !_vm.errors.invoiceValue }},[_c('div',{staticClass:"input__label"},[_vm._v("Amount Invoice\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.invoiceValue),expression:"form.invoiceValue"}],attrs:{"type":"text","required":"required","name":"recipient","placeholder":"Value"},domProps:{"value":(_vm.form.invoiceValue)},on:{"~focus":function($event){_vm.dirty.invoiceValue = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "invoiceValue", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","margin-top":"14px","margin-bottom":"20px","align-items":"flex-end","justify-content":"space-between"}},[_c('div',{staticClass:"input",staticStyle:{"width":"80%"}},[_c('div',{staticClass:"input__label"},[_vm._v("Link to an Invoice\n              "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{attrs:{"type":"text","value":"http://exchange2.net/dfgyhhnm,l;lkjhgc","required":"required","name":"link","readonly":"","placeholder":""}})]),_vm._v(" "),_c('button',{staticClass:"btn btn-green",staticStyle:{"margin":"0 0 3px 0","width":"72px","height":"30px"},attrs:{"type":"button"}},[_vm._v("Copy")])])]):_vm._e(),_vm._v(" "),(_vm.activeTab === 2)?_c('div',[_c('div',{staticClass:"input",class:{invalid : _vm.dirty.amount && _vm.errors.amount, valid: _vm.dirty.amount && !_vm.errors.amount }},[_c('div',{staticClass:"input__label"},[_vm._v("Amount your pay\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.form.amount),expression:"form.amount",modifiers:{"lazy":true}},{name:"money",rawName:"v-money",value:(_vm.moneyUSD),expression:"moneyUSD"}],attrs:{"type":"text","required":"required","maxlength":"15"},domProps:{"value":(_vm.form.amount)},on:{"~focus":function($event){_vm.dirty.amount = true},"change":function($event){_vm.$set(_vm.form, "amount", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Approximately yoy will get\n            "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{directives:[{name:"money",rawName:"v-money",value:(_vm.moneyBTC),expression:"moneyBTC"}],attrs:{"type":"text","readonly":"","maxlength":"15","required":"required"},domProps:{"value":_vm.btc},on:{"~focus":function($event){_vm.dirty.btc = true}}})]),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('div',{staticClass:"radio"},[_c('label',[_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.payment),expression:"form.payment",modifiers:{"number":true}}],attrs:{"type":"radio","name":"payment","value":"paypal"},domProps:{"checked":_vm._q(_vm.form.payment,_vm._n("paypal"))},on:{"change":function($event){_vm.$set(_vm.form, "payment", _vm._n("paypal"))}}}),_vm._v(" "),_c('div',{staticClass:"radio__icon"}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/Paypal.svg","alt":""}})]),_vm._v(" "),_c('label',[_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.payment),expression:"form.payment",modifiers:{"number":true}}],attrs:{"type":"radio","name":"payment","value":"visa"},domProps:{"checked":_vm._q(_vm.form.payment,_vm._n("visa"))},on:{"change":function($event){_vm.$set(_vm.form, "payment", _vm._n("visa"))}}}),_vm._v(" "),_c('div',{staticClass:"radio__icon"}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/Visa.svg","alt":""}}),_vm._v(" "),_c('img',{attrs:{"src":"img/icons/mastercard.svg","alt":""}})])]),_vm._v(" "),_c('button',{staticClass:"btn",class:{'btn-green': _vm.valid},attrs:{"type":"submit"}},[_vm._v("Continue")])]):_vm._e()])])])}
 __vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"cabinet-modal__title"},[_c('span',[_vm._v("Receive Bitcoins")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input__attention"},[_c('img',{attrs:{"src":"img/info.svg","alt":""}}),_vm._v("\n        Не отправляйте ETH со смарт-контрактов! Не отправляйте ERC20-токены!\n        Проверьте, не использует ли ваш кошелёк или биржа смарт-контракты для\n        отправки ETH. Мы не принимаем такие переводы и не можем возместить их.\n        Вы потеряете эти деньги.\n      ")])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Payment service")])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -9201,7 +9238,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-e7001d46", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":24,"vue":7,"vue-hot-reload-api":6}],17:[function(require,module,exports){
+},{"../mixins/modal.mixin":25,"../utils":28,"v-money":6,"vue":8,"vue-hot-reload-api":7}],18:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9310,7 +9347,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-5dd04aef", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":24,"vue":7,"vue-hot-reload-api":6}],18:[function(require,module,exports){
+},{"../mixins/modal.mixin":25,"vue":8,"vue-hot-reload-api":7}],19:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9399,7 +9436,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-7296e396", __vue__options__)
   }
 })()}
-},{"babel-runtime/core-js/json/stringify":1,"vue":7,"vue-hot-reload-api":6}],19:[function(require,module,exports){
+},{"babel-runtime/core-js/json/stringify":1,"vue":8,"vue-hot-reload-api":7}],20:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9409,15 +9446,23 @@ Object.defineProperty(exports, "__esModule", {
 
 var _modal = require("../mixins/modal.mixin");
 
+var _vMoney = require("v-money");
+
+var _utils = require("../utils");
+
 exports.default = {
   mixins: [_modal.modalMixin],
+  directives: { money: _vMoney.VMoney },
   data: function data() {
     return {
+      moneyBTC: _utils.moneyBTC,
+      moneyUSD: _utils.moneyUSD,
       valid: false,
       form: {
         asset: "",
         recipient: "",
         amount: "",
+        usd: "",
         description: ""
       },
       errors: {
@@ -9433,18 +9478,37 @@ exports.default = {
       notification: true
     };
   },
-  template: "#send-modal-template",
   mounted: function mounted() {},
+
+  computed: {
+    usd: function usd() {
+      return ((0, _utils.toMoney)(this.form.amount) / 3).toFixed(2);
+    }
+  },
   methods: {
     submit: function submit() {
+      var _this = this;
+
       if (this.valid) {
         this.closeModal();
+      } else {
+        this.dirty = {
+          asset: true,
+          recipient: true,
+          amount: true
+        };
+
+        this.validate();
+
+        setTimeout(function () {
+          _this.$el.querySelector(".invalid input").focus();
+        }, 0);
       }
     },
     validate: function validate() {
-      this.errors.asset = !this.form.asset;
-      this.errors.recipient = !this.form.recipient;
-      this.errors.amount = !this.form.amount;
+      this.errors.asset = !(0, _utils.amountValidate)(this.form.asset);
+      this.errors.recipient = !(0, _utils.recipientValidate)(this.form.recipient);
+      this.errors.amount = !(0, _utils.amountValidate)(this.form.amount);
 
       if (this.errors.asset || this.errors.recipient || this.errors.amount) {
         this.valid = false;
@@ -9458,8 +9522,8 @@ exports.default = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"send"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__notitication",class:{hidden: !_vm.notification}},[_c('img',{attrs:{"src":"img/info-white.svg","alt":""}}),_vm._v("\n      You havn't amount BTC-coins\n      "),_c('img',{staticClass:"cabinet-modal__notitication_close",attrs:{"src":"img/cancel-white.svg","alt":""},on:{"click":function($event){_vm.notification= false}}})]),_vm._v(" "),_c('form',{on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"input",class:{invalid : _vm.dirty.asset && _vm.errors.asset, valid: _vm.dirty.asset && !_vm.errors.asset }},[_c('div',{staticClass:"input__label"},[_vm._v("Asset\n          "),_c('app-info-tooltip',[_vm._v("\n            какакакаd\n            окакоаз\n          ")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.asset),expression:"form.asset",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"asset","placeholder":"0.00 BTC","autocomplete":"off"},domProps:{"value":(_vm.form.asset)},on:{"~input":function($event){_vm.dirty.asset = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "asset", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}})]),_vm._v(" "),_c('div',{staticClass:"input",class:{invalid : _vm.dirty.recipient && _vm.errors.recipient, valid: _vm.dirty.recipient && !_vm.errors.recipient }},[_c('div',{staticClass:"input__label"},[_vm._v("Recipient\n          "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.recipient),expression:"form.recipient",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"recipient","placeholder":"Paste address","autocomplete":"off"},domProps:{"value":(_vm.form.recipient)},on:{"~input":function($event){_vm.dirty.recipient = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "recipient", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}})]),_vm._v(" "),_c('div',{staticClass:"input",class:{invalid : _vm.dirty.amount && _vm.errors.amount, valid: _vm.dirty.amount && !_vm.errors.amount }},[_c('div',{staticClass:"input__label"},[_vm._v("Amount")]),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","justify-content":"space-between","align-items":"center"}},[_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.amount),expression:"form.amount",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"amount","autocomplete":"off","placeholder":"0.00 BTC"},domProps:{"value":(_vm.form.amount)},on:{"~input":function($event){_vm.dirty.amount = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "amount", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}}),_vm._v(" "),_c('span',[_vm._v("OR")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.number",value:(_vm.form.amount),expression:"form.amount",modifiers:{"number":true}}],attrs:{"type":"text","required":"required","name":"amount","autocomplete":"off","placeholder":"0.00 USD"},domProps:{"value":(_vm.form.amount)},on:{"~input":function($event){_vm.dirty.amount = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "amount", _vm._n($event.target.value))},"blur":function($event){_vm.$forceUpdate()}}})])]),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('button',{staticClass:"btn",class:{'btn-green': _vm.valid},attrs:{"type":"submit"}},[_vm._v("SEND")])])])])}
-__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"cabinet-modal__title"},[_c('span',[_vm._v("Send Bitcoins")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Transaction Fee 0.0005 BTC")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Description")]),_vm._v(" "),_c('textarea',{attrs:{"name":"description","placeholder":"Say hello!"}})])}]
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"modal cabinet-modal",attrs:{"data-modal":"send"}},[_c('div',{staticClass:"modal-body"},[_c('div',{staticClass:"js-close-modal modal__close",on:{"click":function($event){_vm.closeModal()}}}),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"cabinet-modal__notitication",class:{hidden: !_vm.notification}},[_c('img',{attrs:{"src":"img/info-white.svg","alt":""}}),_vm._v("\n      You havn't amount BTC-coins\n      "),_c('img',{staticClass:"cabinet-modal__notitication_close",attrs:{"src":"img/cancel-white.svg","alt":""},on:{"click":function($event){_vm.notification= false}}})]),_vm._v(" "),_c('form',{attrs:{"novalidate":""},on:{"submit":function($event){$event.preventDefault();_vm.submit()},"input":function($event){_vm.validate()}}},[_c('div',{staticClass:"input",class:{invalid : _vm.dirty.asset && _vm.errors.asset, valid: _vm.dirty.asset && !_vm.errors.asset }},[_c('div',{staticClass:"input__label"},[_vm._v("Asset\n          "),_c('app-info-tooltip',[_vm._v("\n            какакакаd\n            окакоаз\n          ")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.form.asset),expression:"form.asset",modifiers:{"lazy":true}},{name:"money",rawName:"v-money",value:(_vm.moneyBTC),expression:"moneyBTC"}],attrs:{"maxlength":"15","required":"required"},domProps:{"value":(_vm.form.asset)},on:{"~focus":function($event){_vm.dirty.asset = true},"change":function($event){_vm.$set(_vm.form, "asset", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"input",class:{invalid : _vm.dirty.recipient && _vm.errors.recipient, valid: _vm.dirty.recipient && !_vm.errors.recipient }},[_c('div',{staticClass:"input__label"},[_vm._v("Recipient\n          "),_c('app-info-tooltip',[_vm._v("какакакаd")])],1),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.form.recipient),expression:"form.recipient"}],attrs:{"type":"text","required":"required","name":"recipient","placeholder":"Paste address","autocomplete":"off","maxlength":"30"},domProps:{"value":(_vm.form.recipient)},on:{"~focus":function($event){_vm.dirty.recipient = true},"input":function($event){if($event.target.composing){ return; }_vm.$set(_vm.form, "recipient", $event.target.value)}}})]),_vm._v(" "),_c('div',{staticClass:"input",class:{invalid : _vm.dirty.amount && _vm.errors.amount, valid: _vm.dirty.amount && !_vm.errors.amount }},[_c('div',{staticClass:"input__label"},[_vm._v("Amount")]),_vm._v(" "),_c('div',{staticStyle:{"display":"flex","justify-content":"space-between","align-items":"center"}},[_c('input',{directives:[{name:"model",rawName:"v-model.lazy",value:(_vm.form.amount),expression:"form.amount",modifiers:{"lazy":true}},{name:"money",rawName:"v-money",value:(_vm.moneyBTC),expression:"moneyBTC"}],attrs:{"required":"required","type":"text","maxlength":"15"},domProps:{"value":(_vm.form.amount)},on:{"~focus":function($event){_vm.dirty.amount = true},"change":function($event){_vm.$set(_vm.form, "amount", $event.target.value)}}}),_vm._v(" "),_c('span',[_vm._v("OR")]),_vm._v(" "),_c('input',{directives:[{name:"money",rawName:"v-money",value:(_vm.moneyUSD),expression:"moneyUSD"}],attrs:{"required":"required","type":"text","readonly":""},domProps:{"value":_vm.usd},on:{"~focus":function($event){_vm.dirty.usd = true}}})])]),_vm._v(" "),_vm._m(1),_vm._v(" "),_vm._m(2),_vm._v(" "),_c('button',{staticClass:"btn",class:{'btn-green': _vm.valid},attrs:{"type":"submit"}},[_vm._v("SEND")])])])])}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"cabinet-modal__title"},[_c('span',[_vm._v("Send Bitcoins")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Transaction Fee 0.0005 BTC")])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"input"},[_c('div',{staticClass:"input__label"},[_vm._v("Description")]),_vm._v(" "),_c('textarea',{attrs:{"name":"description","placeholder":"Say hello!","maxlength":"300"}})])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -9470,7 +9534,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-0b3658fe", __vue__options__)
   }
 })()}
-},{"../mixins/modal.mixin":24,"vue":7,"vue-hot-reload-api":6}],20:[function(require,module,exports){
+},{"../mixins/modal.mixin":25,"../utils":28,"v-money":6,"vue":8,"vue-hot-reload-api":7}],21:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9585,7 +9649,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-7bff2761", __vue__options__)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":6}],21:[function(require,module,exports){
+},{"vue":8,"vue-hot-reload-api":7}],22:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -9614,7 +9678,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-6dd83f9d", __vue__options__)
   }
 })()}
-},{"vue":7,"vue-hot-reload-api":6}],22:[function(require,module,exports){
+},{"vue":8,"vue-hot-reload-api":7}],23:[function(require,module,exports){
 ;(function(){
 "use strict";
 
@@ -10013,7 +10077,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
     hotAPI.rerender("data-v-0d26f7b4", __vue__options__)
   }
 })()}
-},{"../shared.service.js":26,"./dropdown.vue":13,"vue":7,"vue-hot-reload-api":6}],23:[function(require,module,exports){
+},{"../shared.service.js":27,"./dropdown.vue":14,"vue":8,"vue-hot-reload-api":7}],24:[function(require,module,exports){
 "use strict";
 
 var _vue = require("vue");
@@ -10071,7 +10135,7 @@ new _vue2.default({
   }
 }).$mount("#app");
 
-},{"./App.vue":9,"vue":7}],24:[function(require,module,exports){
+},{"./App.vue":10,"vue":8}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10096,7 +10160,7 @@ var modalMixin = exports.modalMixin = {
     }
 };
 
-},{"../shared.service.js":26}],25:[function(require,module,exports){
+},{"../shared.service.js":27}],26:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10235,7 +10299,7 @@ function SHA256(s) {
     return binb2hex(core_sha256(str2binb(s), s.length * chrsz));
 }
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10281,4 +10345,52 @@ var ModalService = function () {
 
 exports.default = new ModalService();
 
-},{}]},{},[23]);
+},{}],28:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.toMoney = toMoney;
+exports.recipientValidate = recipientValidate;
+exports.amountValidate = amountValidate;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var moneyBTC = exports.moneyBTC = {
+    decimal: ".",
+    thousands: ",",
+    prefix: "",
+    suffix: " BTC",
+    precision: 2,
+    masked: false /* doesn't work with directive */
+};
+var moneyUSD = exports.moneyUSD = {
+    decimal: ".",
+    thousands: ",",
+    prefix: "",
+    suffix: " USD",
+    precision: 2,
+    masked: false /* doesn't work with directive */
+};
+
+function toMoney(val) {
+    return val ? parseFloat(val.replace(/,/g, "")) : 0;
+};
+
+function recipientValidate(val) {
+    var re = /^([0-9-]){1,30}$/;
+    return re.test(val);
+};
+
+function amountValidate(val) {
+    return toMoney(val);
+};
+
+//TODO
+
+var FormGroup = function FormGroup() {
+    _classCallCheck(this, FormGroup);
+};
+
+},{}]},{},[24]);

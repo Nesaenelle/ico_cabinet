@@ -8,6 +8,13 @@ body.cabinet {
     @media screen and (max-width: 1200px) {
         padding: 10px 0 0 0;
     }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
 }
 
 .cabinet {
@@ -675,6 +682,7 @@ body.cabinet {
             border: 1px solid #ddd;
             padding: 9px 10px;
             font-size: 14px;
+            font-family: ProximaNova,sans-serif;
         }
     }
 
@@ -709,7 +717,7 @@ body.cabinet {
             color: #fff;
         }
 
-        &.col-4 {}
+        // &.col-4 {}
 
         &.col-5 {
 
