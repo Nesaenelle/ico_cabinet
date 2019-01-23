@@ -1,7 +1,7 @@
 <template>
   <div class="modal" data-modal="sign-up">
     <div class="modal-body">
-      <div class="js-close-modal modal__close"></div>
+      <div class="js-close-modal modal__close" @click="closeModal()"></div>
       <div class="modal-logo">
         <img class="modal-logo" src="img/logo.svg">
       </div>
@@ -9,7 +9,7 @@
         <span>Create your account now</span>
       </div>
       <form @submit.prevent="submit()" @input="validate()" @change="validate()">
-        <div class="js-close-modal modal__close"></div>
+        <!-- <div class="js-close-modal modal__close"></div> -->
         <div class="modal-label">Email</div>
         <div
           class="modal-input"

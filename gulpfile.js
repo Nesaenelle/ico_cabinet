@@ -31,7 +31,10 @@ var gulp = require("gulp"),
     browserify = require("browserify"),
     babelify = require("babelify"),
     vueify = require("vueify"),
-    source     = require('vinyl-source-stream');
+    source = require('vinyl-source-stream'),
+    minify = require('gulp-minify'),
+    uglify = require('gulp-uglify'),
+    buffer = require('vinyl-buffer');
 
 // ... other includes
 var browserSync = require("browser-sync").create();
@@ -40,29 +43,33 @@ var browserSync = require("browser-sync").create();
 function style() {
     return (
         gulp
-        .src(paths.styles.src)
-        .pipe(sourcemaps.init())
-        .pipe(sass())
-        .on("error", sass.logError)
-        .pipe(postcss([autoprefixer(), cssnano()]))
-        .pipe(rename('ico_cabinet.min.css'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(paths.styles.dest))
-        // Add browsersync stream pipe after compilation
-        .pipe(browserSync.stream())
+            .src(paths.styles.src)
+            .pipe(sourcemaps.init())
+            .pipe(sass())
+            .on("error", sass.logError)
+            .pipe(postcss([autoprefixer(), cssnano()]))
+            .pipe(rename('ico_cabinet.min.css'))
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest(paths.styles.dest))
+            // Add browsersync stream pipe after compilation
+            .pipe(browserSync.stream())
     );
 }
 
-function vue () {
-   
-        return browserify({ entries: 'src/main.js'})
-          .transform(babelify, { presets: ['es2015'] })
-          .transform(vueify)
-          .bundle()
-            .pipe(source('app.js'))
-            .pipe(gulp.dest('public'))
-            // .pipe(reload());
-  
+function vue() {
+
+    return browserify({ entries: 'src/main.js' })
+        .transform(babelify, { presets: ['es2015'] })
+        .transform(vueify)
+        .bundle()
+
+
+        .pipe(source('app.js'))
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(gulp.dest('public'))
+    // .pipe(reload());
+
 }
 
 // A simple task to reload the page
@@ -94,3 +101,12 @@ function watch() {
 // It's currently only useful in other functions
 
 exports.watch = watch
+
+
+
+// function build() {
+//     console.log('Build');
+//     style();
+//     // vue();
+// }
+// exports.build = build

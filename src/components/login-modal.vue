@@ -4,7 +4,7 @@
       <div class="modal-logo">
         <img class="modal-logo" src="img/logo.svg">
       </div>
-      <div class="js-close-modal modal__close"></div>
+      <div class="modal__close" @click="closeModal()"></div>
       <div class="modal-line-text">
         <span>LOG IN</span>
       </div>
