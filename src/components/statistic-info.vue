@@ -4,10 +4,9 @@
     <div class="table col-5">
       <div class="table-filter">
         <div class="table-filter__input">
-           <input type="text" class="search-input" maxlength="40">
-          <img src="img/search.svg" alt="">
+          <input type="text" class="search-input" maxlength="40" v-model="searchValue">
+          <img src="img/search.svg" alt>
         </div>
-       
       </div>
       <div class="table-head filled">
         <div class="table-head__col">Tokens</div>
@@ -17,16 +16,20 @@
         <div class="table-head__col">Fee, USD</div>
       </div>
       <div class="table-body filled" ref="scroll">
-        <div class="table-empty" v-if="!collection.length">Empty</div>
-        <div class="table-body__row" v-if="collection.length" v-for="item in collection">
-          <div class="table-body__col">
-            <img :src="item.icon">
-            {{item.name}}
+        <div>
+          <div class="table-empty" v-if="!collection.length">Empty</div>
+          <div class="table-empty" v-if="collection.length && !filtered.length">No results</div>
+
+          <div class="table-body__row" v-for="(item, key) in filtered" :key="key">
+            <div class="table-body__col">
+              <img :src="item.icon">
+              {{item.name}}
+            </div>
+            <div class="table-body__col">{{item.balance}}</div>
+            <div class="table-body__col">{{item.inOrders}}</div>
+            <div class="table-body__col">{{item.price}}</div>
+            <div class="table-body__col">{{item.fee}}</div>
           </div>
-          <div class="table-body__col">{{item.balance}}</div>
-          <div class="table-body__col">{{item.inOrders}}</div>
-          <div class="table-body__col">{{item.price}}</div>
-          <div class="table-body__col">{{item.fee}}</div>
         </div>
       </div>
     </div>
@@ -105,16 +108,24 @@ export default {
   name: "app-statistic",
   data: function() {
     return {
-      collection: []
+      collection: [],
+      searchValue: ""
     };
   },
+  computed: {
+    filtered(state) {
+      let a = state.collection.filter(r => {
+        return r.name.toLowerCase().includes(state.searchValue.toLowerCase());
+      });
+      return a;
+    }
+  },
   template: "#statistic-info-template",
-  mounted: function() {
-    var self = this;
-    setTimeout(function() {
-      self.collection = statisticCollection;
-      setTimeout(function() {
-        new SimpleBar(self.$refs["scroll"], {
+  mounted() {
+    setTimeout(() => {
+      this.collection = statisticCollection;
+      setTimeout(() => {
+        new SimpleBar(this.$refs["scroll"], {
           autoHide: false
         });
       }, 0);

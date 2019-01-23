@@ -66,7 +66,7 @@ function vue() {
 
         .pipe(source('app.js'))
         .pipe(buffer())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('public'))
     // .pipe(reload());
 
