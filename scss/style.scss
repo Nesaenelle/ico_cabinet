@@ -233,7 +233,7 @@ body.cabinet {
             }
 
             form {
-                margin-top: 24px;
+                margin-top: 27px;
 
                 @media screen and (max-width: 1200px) {
                     display: flex;
@@ -243,6 +243,10 @@ body.cabinet {
             }
 
             .input {
+                margin-bottom: 3px;
+                &+.input {
+                    margin-bottom: 3px;
+                }
                 @media screen and (max-width: 1200px) {
                     margin-top: 0;
                     width: calc(50% - 10px);
@@ -579,10 +583,10 @@ body.cabinet {
 
     .input {
         position: relative;
-
-        &+.input {
-            margin-top: 6px;
-        }
+        // margin-bottom: 6px;
+        // &+.input {
+        //     margin-bottom: 6px;
+        // }
 
         &.valid {
 
@@ -622,7 +626,10 @@ body.cabinet {
             right: 10px;
             // margin: auto;
             background: url(img/info.svg);
-
+            
+            & + input {
+                width: calc(100% - 40px)!important;
+            }
             // cursor: pointer;
             &:hover {
 

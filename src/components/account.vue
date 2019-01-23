@@ -2,7 +2,7 @@
   <div class="dashboard-block account">
     <div class="cabinet-block__title">Account</div>
 
-    <form @submit.prevent="submit()" @input="validate()">
+    <form @submit.prevent="submit()" @input="validate()" novalidate>
       <div
         class="input"
         :class="{invalid : dirty.email && errors.email, valid: dirty.email && !errors.email }"
@@ -15,7 +15,7 @@
           v-model="form.email"
           name="email"
           placeholder="your@email.com"
-          @input.once="dirty.email = true"
+          @focus.once="dirty.email = true"
         >
       </div>
 
@@ -34,7 +34,7 @@
           required
           v-model="form.password"
           placeholder="***********"
-          @input.once="dirty.password = true"
+          @focus.once="dirty.password = true"
         >
       </div>
 
@@ -53,7 +53,7 @@
           name="passwordConfirm"
           v-model="form.passwordConfirm"
           placeholder="***********"
-          @input.once="dirty.passwordConfirm = true"
+          @focus.once="dirty.passwordConfirm = true"
         >
       </div>
 
@@ -91,10 +91,21 @@ export default {
   },
   mounted() {},
   methods: {
-    submit: function() {
+    submit() {
       if (this.valid) {
-        alert(JSON.stringify(this.form));
-        console.log(JSON.stringify(this.form));
+             alert(JSON.stringify(this.form));
+      } else {
+        this.dirty = {
+          email: true,
+          password: true,
+          passwordConfirm: true
+        };
+
+        this.validate();
+
+        setTimeout(() => {
+          this.$el.querySelector(".invalid input").focus();
+        }, 0);
       }
     },
     validate: function() {

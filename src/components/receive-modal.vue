@@ -64,7 +64,7 @@
             style="    display: flex; margin-top: 14px;margin-bottom: 20px;
     align-items: flex-end; justify-content: space-between;"
           >
-            <div class="input" style="width: 80%">
+            <div class="input" style="width: 80%; margin-bottom: 0;">
               <div class="input__label">Link to an Invoice
                 <app-info-tooltip>какакакаd</app-info-tooltip>
               </div>
