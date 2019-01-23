@@ -662,6 +662,9 @@ body.cabinet {
 
         .table-head {
             padding-right: 30px;
+            @media screen and (max-width: 768px) {
+                padding: 0 10px;
+            }
         }
 
         .table-body__row {
